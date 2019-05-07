@@ -32,6 +32,10 @@ describe('UserRepository', function() {
     expect(userRepository.calcAvgStepGoal()).to.equal(7750)
   })
 
+  it('should return average state of residence', () => {
+    expect(userRepository.calcAvgLocation()).to.equal('SD')
+  })
+
 
 })
 

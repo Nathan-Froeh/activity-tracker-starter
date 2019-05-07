@@ -10,7 +10,7 @@ const testUserData = [
   {
     "id": 2,
     "name": "Shayne Swift",
-    "address": "747 Dickinson Gardens, South Helga AR 88484-2240",
+    "address": "270 August Meadows, Maribelside SD 36129",
     "email": "Lawson74@yahoo.com",
     "strideLength": 4.5,
     "dailyStepGoal": 11000
