@@ -4,6 +4,7 @@ class UserRepository {
   }
 
   getUser() {
+    console.log(this.users)
     // Given a user’s ID, what is their user data?
   }
 

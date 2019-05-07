@@ -8,7 +8,7 @@ const UserRepository = require('../src/UserRepository');
 describe('UserRepository', function() {
   let userRepository;
   beforeEach(() => {
-    userRepository = new UserRepository();
+    userRepository = new UserRepository(testUser.testUserData);
   })
 
   it('should be a function', () => {
@@ -19,10 +19,12 @@ describe('UserRepository', function() {
     expect(userRepository).to.be.an.instanceof(UserRepository);
   })
 
-  it.skip('should be a new instance of User', () => {
-    expect(user.userData).to.deep.equal(testPerson);
+  it('should be instantiated with an array of user objects', () => {
+    expect(userRepository.users).to.deep.equal(testUser.testUserData);
   })
 
 
 
 })
+
+console.log(testUser.testUserData)
