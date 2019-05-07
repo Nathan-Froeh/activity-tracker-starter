@@ -23,6 +23,10 @@ describe('UserRepository', function() {
     expect(userRepository.users).to.deep.equal(testUser.testUserData);
   })
 
+  it('should return instance of user by id', () => {
+    expect(userRepository.getUser(1)).to.equal(testUser.testUserData[0])
+    expect(userRepository.getUser(2)).to.equal(testUser.testUserData[1])
+  })
 
 
 })

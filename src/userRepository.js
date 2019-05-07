@@ -3,8 +3,9 @@ class UserRepository {
     this.users = users;
   }
 
-  getUser() {
-    console.log(this.users)
+  getUser(id) {
+    // console.log(this.users)
+    return this.users.filter(x => x.id === id)[0]
     // Given a user’s ID, what is their user data?
   }
 
