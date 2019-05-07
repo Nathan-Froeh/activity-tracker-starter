@@ -28,6 +28,10 @@ describe('UserRepository', function() {
     expect(userRepository.getUser(2)).to.equal(testUser.testUserData[1])
   })
 
+  it('should calculate total average step goal', () => {
+    expect(userRepository.calcAvgStepGoal()).to.equal(7750)
+  })
+
 
 })
 

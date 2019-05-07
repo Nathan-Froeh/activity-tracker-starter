@@ -11,6 +11,9 @@ class UserRepository {
 
   calcAvgStepGoal() {
     // Average step goal amongst all users
+    return this.users.reduce((acc, cur) => {
+       return acc = acc + cur.dailyStepGoal / this.users.length
+    }, 0)
   }
 
   calcAvgLocation() {
