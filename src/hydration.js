@@ -1,10 +1,14 @@
 class Hydration {
-  constructor() {
-
+  constructor(hydrationData) {
+    this.hydrationData = hydrationData
   }
 
   calcAllTimeHydration() {
     // the average fluid ounces consumed per day for all time
+    let total = this.hydrationData.reduce((acc, cur) => {
+      return acc = acc + cur.numOunces
+    }, 0)
+    return Math.round(total / this.hydrationData.length)
   }
 
   calcDateHydration() {
@@ -16,3 +20,4 @@ class Hydration {
   }
 
 }
+module.exports = Hydration;
