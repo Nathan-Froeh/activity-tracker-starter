@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+  border: solid 1px red;
+  padding: 0;
+}
+
+body {
+  display: flex;
+}
+
+aside {
+  width: 20%;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section {
+  height: 200px;
+  width: 200px;
+}

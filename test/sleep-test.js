@@ -36,6 +36,20 @@ describe('Sleep', function() {
     expect(sleep.getSleepTimeByDate("15/05/2019")).to.equal(6.1)
   })
 
+  it('should return sleep quality for a specific day', () => {
+    expect(sleep.getSleepQualityByDate("06/05/2019")).to.equal(4.8)
+    expect(sleep.getSleepQualityByDate("08/05/2019")).to.equal(1.9)
+    expect(sleep.getSleepQualityByDate("14/05/2019")).to.equal(2)
+  })
+
+  it('should return an array of the last 7 days sleep time starting by given date', () => {
+    expect(sleep.getSleepTimeByWeek("07/05/2019")).to.deep.equal([10.7, 8.1, 4.5, 10.7, 5.6, 10.1, 10.1])
+  })
+
+  it('should return an array of the last 7 days sleep time starting by given date', () => {
+    expect(sleep.getSleepQulityByWeek("07/05/2019")).to.deep.equal([4.8, 1.9, 3.4, 4.3, 3.5, 1.7, 3.2])
+  })
+
 
 
 
