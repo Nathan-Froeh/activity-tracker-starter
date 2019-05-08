@@ -210,9 +210,10 @@ const testActivityData = [
     ]
   }
 ]
-
-module.exports = {
-  testUserData, testHydrationData, testSleepData, testActivityData
-};
+if(typeof module !== undefined) {
+  module.exports = {
+    testUserData, testHydrationData, testSleepData, testActivityData
+  };
+}
 
 

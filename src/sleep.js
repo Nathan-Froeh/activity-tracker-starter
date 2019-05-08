@@ -41,7 +41,6 @@ class Sleep {
     let index = this.sleepData.findIndex(x => x.date === date)
     let stuff = this.sleepData.slice(index, index + 7)
     return stuff.map(x => x.sleepQuality)
-    
   }
 
   calcTotalUserSleepQuality() {
@@ -65,4 +64,6 @@ class Sleep {
 
 }
 
-module.exports = Sleep;
+if(typeof module !== undefined) {
+  module.exports = Sleep;
+}
