@@ -36,6 +36,12 @@ describe('Sleep', function() {
     expect(sleep.getSleepTimeByDate("15/05/2019")).to.equal(6.1)
   })
 
+  it('should return sleep quality for a specific day', () => {
+    expect(sleep.getSleepQualityByDate("06/05/2019")).to.equal(4.8)
+    expect(sleep.getSleepQualityByDate("08/05/2019")).to.equal(1.9)
+    expect(sleep.getSleepQualityByDate("14/05/2019")).to.equal(2)
+  })
+
 
 
 

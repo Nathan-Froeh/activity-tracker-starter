@@ -24,8 +24,9 @@ class Sleep {
     return this.sleepData.find(x => x.date === date).hoursSlept;
   }
 
-  getSleepQualityByDate() {
+  getSleepQualityByDate(date) {
     // their sleep quality for a specific day
+    return this.sleepData.find(x => x.date === date).sleepQuality;
   }
 
   getSleepTimeByWeek() {
