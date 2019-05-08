@@ -19,8 +19,9 @@ class Sleep {
     return Number((totalQuality / this.sleepData.length).toFixed(1))
   }
 
-  getSleepTimeByDate() {
+  getSleepTimeByDate(date) {
     // how many hours they slept for a specific day 
+    return this.sleepData.find(x => x.date === date).hoursSlept;
   }
 
   getSleepQualityByDate() {

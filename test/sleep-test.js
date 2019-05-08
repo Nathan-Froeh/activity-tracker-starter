@@ -30,6 +30,12 @@ describe('Sleep', function() {
     expect(sleep.calcSleepQuality()).to.equal(3.3)
   })
 
+  it('should return hours slept by date', () => {
+    expect(sleep.getSleepTimeByDate("06/05/2019")).to.equal(8)
+    expect(sleep.getSleepTimeByDate("09/05/2019")).to.equal(4.5)
+    expect(sleep.getSleepTimeByDate("15/05/2019")).to.equal(6.1)
+  })
+
 
 
 
