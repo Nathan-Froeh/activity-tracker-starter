@@ -5,6 +5,10 @@ class Sleep {
 
   calcSleepTime() {
     // the average number of hours slept per day
+    let timeSlept = this.sleepData.reduce((acc, cur) => {
+      return acc = acc + cur.hoursSlept
+    }, 0)
+    return Number((timeSlept / this.sleepData.length).toFixed(1))
   }
 
   calcSleepQuality() {
@@ -40,7 +44,7 @@ class Sleep {
   }
 
   calcEfficientSleep() {
-    // [find top 5 best sleeper (hours * quality) / days]
+    // [find top 5 best sleeper (hours * quality) / days] and rating
   }
 
 

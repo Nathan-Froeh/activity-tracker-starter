@@ -7,7 +7,7 @@ const Sleep = require('../src/Sleep');
 describe('Sleep', function() {
   let sleep;
   beforeEach(() => {
-    sleep = new Sleep(testUser.testSleepData);
+    sleep = new Sleep(testUser.testSleepData[0].sleepData);
   })
 
   it('should be a function', () => {
@@ -19,8 +19,14 @@ describe('Sleep', function() {
   })
 
   it('should be instantiated with a users sleep data', () => {
-    expect(sleep.sleepData).to.deep.equal(testUser.testSleepData)
+    expect(sleep.sleepData).to.deep.equal(testUser.testSleepData[0].sleepData)
   })
+
+  it('should return total average hours slept per day', () => {
+    expect(sleep.calcSleepTime()).to.equal(8.4)
+  })
+
+
 
 
 })
