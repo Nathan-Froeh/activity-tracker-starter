@@ -25251,4 +25251,8 @@ const sleepData = [
   }
 ]
 
-module.exports = sleepData;
+
+
+if(typeof module !== "undefined") {
+  module.exports = sleepData;
+}
