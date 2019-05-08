@@ -37,6 +37,6 @@ class Activity {
     //for all users, should return avg of stairs climbed for spec date
   }
 }
-if (module !== undefined) {
+if (typeof module !== 'undefined') {
   module.exports = Activity;
 }
