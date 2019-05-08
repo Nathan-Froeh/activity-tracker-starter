@@ -29,12 +29,19 @@ class Sleep {
     return this.sleepData.find(x => x.date === date).sleepQuality;
   }
 
-  getSleepTimeByWeek() {
+  getSleepTimeByWeek(date) {
     // [how many hours slept each day over the course of a given week] 
+    let index = this.sleepData.findIndex(x => x.date === date)
+    let stuff = this.sleepData.slice(index, index + 7)
+    return stuff.map(x => x.hoursSlept)
   }
 
-  getSleepQulityByWeek() {
+  getSleepQulityByWeek(date) {
     // [their sleep quality each day over the course of a given week] 
+    let index = this.sleepData.findIndex(x => x.date === date)
+    let stuff = this.sleepData.slice(index, index + 7)
+    return stuff.map(x => x.sleepQuality)
+    
   }
 
   calcTotalUserSleepQuality() {
