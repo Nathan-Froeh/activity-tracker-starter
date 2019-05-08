@@ -10,8 +10,8 @@ class Activity {
   }
 
   getActiveTimeByDate(date) {
-    return this.activityData.find(x => x.date === date).minutesActive 
     //should return a users active time on specific date
+    return this.activityData.find(x => x.date === date).minutesActive 
   }
   getWeeklyAvgActive(date) {
     //should return a users average active time per a week
@@ -19,11 +19,15 @@ class Activity {
     let weeksActivity = this.activityData.slice(index, index + 7).map(day => day.minutesActive)
     return Math.floor(weeksActivity.reduce((accu, day) => accu += day) / 7)
   }
-  getStepGoal() {
+  getStepGoal(date) {
     //should return whether a user reached their step goal on specific date
+    let daySteps = this.activityData.find(x => x.date === date).numSteps 
+    return this.user.userData.dailyStepGoal < daySteps
   }
-  getExceedGoal() {
+  getExceedStepGoal() {
     //should return dates that user passed goals
+    let daysOverGoal = this.activityData.filter(day => day.numSteps > this.user.userData.dailyStepGoal)
+    return daysOverGoal.map(day => day.date)
   }
   getTopClimbingRecord() {
     //should return top climbing date for a user
