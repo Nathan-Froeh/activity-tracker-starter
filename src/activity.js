@@ -3,8 +3,10 @@ class Activity {
     this.activityData = activityData
     this.user = user
   }
-  getMilesWalked() {
-    //should return a users miles walked on specific date
+
+  getMilesWalked(date) {
+    return this.activityData.find(x => x.date === date).numSteps 
+    * this.user.userData.strideLength * 0.00018939
   }
 
   getActiveTimeByDate() {
@@ -16,8 +18,14 @@ class Activity {
   getStepGoal() {
     //should return whether a user reached their step goal on specific date
   }
+  getExceedGoal() {
+    //should return dates that user passed goals
+  }
   getTopClimbingRecord() {
     //should return top climbing date for a user
+  }
+  getAllUserAvgStepByDate() {
+    //for all users, should return avg of stairs climbed for spec date
   }
 }
 if (module !== undefined) {

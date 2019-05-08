@@ -19,7 +19,7 @@ describe('Activity', function() {
   let activity;
   beforeEach(() => {
     user = new User(testUser.testUserData[0]);
-    activity = new Activity(testUser.testActivityData[0], user)
+    activity = new Activity(testUser.testActivityData[0].activityData, user)
   })
 
   it('should be a function', () => {
@@ -34,8 +34,33 @@ describe('Activity', function() {
     expect(activity.activityData).to.eql(testUser.testActivityData[0]);
   })
 
-  it('should return miles walked on specific date', () => {
-    expect(activity.getMilesWalked).to.equal();
+  it.only('should return a users miles walked on specific date', () => {
+    expect(activity.getMilesWalked("08/05/2019")).to.equal(2387 * 4.7 * 0.00018939)
+    expect(activity.getMilesWalked("14/05/2019")).to.equal(3338 * 4.7 * 0.00018939)
   })
+
+  it('should return a users active time on specific date', () => {
+    
+  })
+
+  it('should return a users average active time per a week', () => {
+    
+  })
+  it('should return whether a user reached their step goal on specific date', () => {
+    
+  })
+  it('should return dates that user passed goals', () => {
+    
+  })
+  it('should return top climbing date for a user', () => {
+    
+  })
+  it('for all users, should return avg of stairs climbed for spec date', () => {
+    
+  })
+  it('for all users, should return avg of stairs climbed for spec date', () => {
+    
+  })
+
 
 })
