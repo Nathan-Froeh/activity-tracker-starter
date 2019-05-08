@@ -30,9 +30,10 @@ class Activity {
     return daysOverGoal.map(day => day.date)
   }
   getTopClimbingRecord() {
-    //should return top climbing date for a user
+    //should return top climbing date for a user'
+    return this.activityData.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)[0].date
   }
-  getAllUserAvgStepByDate() {
+  getAllUserAvgStepByDate(date, allUserData) {
     //for all users, should return avg of stairs climbed for spec date
   }
 }

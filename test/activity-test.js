@@ -31,7 +31,7 @@ describe('Activity', function() {
   })
 
   it('should hold the Activity Data', () => {
-    expect(activity.activityData).to.eql(testUser.testActivityData[0]);
+    expect(activity.activityData).to.eql(testUser.testActivityData[0].activityData);
   })
 
   it('should return a users miles walked on specific date', () => {
@@ -51,7 +51,7 @@ describe('Activity', function() {
     expect(activity.getStepGoal("07/05/2019")).to.equal(false)
     expect(activity.getStepGoal("10/05/2019")).to.equal(true)
   })
-  it.only('should return dates that user passed goals', () => {
+  it('should return dates that user passed goals', () => {
     expect(activity.getExceedStepGoal()).to.deep.equal(["10/05/2019", "12/05/2019", "15/05/2019"])
   })
   it('should return top climbing date for a user', () => {
