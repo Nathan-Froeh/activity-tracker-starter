@@ -13,6 +13,10 @@ class Sleep {
 
   calcSleepQuality() {
     // their average sleep quality per day over all time
+    let totalQuality = this.sleepData.reduce((acc, cur) => {
+      return acc = acc + cur.sleepQuality
+    }, 0)
+    return Number((totalQuality / this.sleepData.length).toFixed(1))
   }
 
   getSleepTimeByDate() {

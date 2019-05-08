@@ -26,6 +26,10 @@ describe('Sleep', function() {
     expect(sleep.calcSleepTime()).to.equal(8.4)
   })
 
+  it('should return total average sleep quality per day', () => {
+    expect(sleep.calcSleepQuality()).to.equal(3.3)
+  })
+
 
 
 
