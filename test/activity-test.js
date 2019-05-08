@@ -34,17 +34,18 @@ describe('Activity', function() {
     expect(activity.activityData).to.eql(testUser.testActivityData[0]);
   })
 
-  it.only('should return a users miles walked on specific date', () => {
+  it('should return a users miles walked on specific date', () => {
     expect(activity.getMilesWalked("08/05/2019")).to.equal(2387 * 4.7 * 0.00018939)
     expect(activity.getMilesWalked("14/05/2019")).to.equal(3338 * 4.7 * 0.00018939)
   })
 
   it('should return a users active time on specific date', () => {
-    
+    expect(activity.getActiveTimeByDate("08/05/2019")).to.equal(179)
+    expect(activity.getActiveTimeByDate("14/05/2019")).to.equal(142)
   })
 
-  it('should return a users average active time per a week', () => {
-    
+  it.only('should return a users average active time per a week', () => {
+    expect(activity.getWeeklyAvgActive("07/05/2019")).to.equal(186)
   })
   it('should return whether a user reached their step goal on specific date', () => {
     
