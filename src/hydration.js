@@ -16,8 +16,11 @@ class Hydration {
     return this.hydrationData.find(x => x.date === date).numOunces;
   }
 
-  calcWeeklyHydration() {
+  calcWeeklyHydration(date) {
     // how many fluid ounces of water consumed each day over the course of a week
+    let index = this.hydrationData.findIndex(x => x.date === date)
+    let stuff = this.hydrationData.slice(index, index + 7)
+    return stuff.map(x => x.numOunces)
   }
 
 }

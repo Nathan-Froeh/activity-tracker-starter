@@ -32,4 +32,8 @@ describe('Hydration', function() {
     expect(hydration.calcDateHydration("15/05/2019")).to.equal(59)
   })
 
+  it('should return average fluid ounces consumed that week', () => {
+    expect(hydration.calcWeeklyHydration("06/05/2019")).to.deep.equal([64, 80, 39, 40, 65, 84, 33])
+  })
+
 })
