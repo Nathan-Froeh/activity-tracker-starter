@@ -36,7 +36,4 @@ describe('UserRepository', function() {
     expect(userRepository.calcAvgLocation()).to.equal('SD')
   })
 
-
 })
-
-console.log(testUser.testUserData)

@@ -4,9 +4,8 @@ class UserRepository {
   }
 
   getUser(id) {
-    // console.log(this.users)
-    return this.users.filter(x => x.id === id)[0]
     // Given a user’s ID, what is their user data?
+    return this.users.filter(x => x.id === id)[0]
   }
 
   calcAvgStepGoal() {
