@@ -11,8 +11,9 @@ class Hydration {
     return Math.round(total / this.hydrationData.length)
   }
 
-  calcDateHydration() {
+  calcDateHydration(date) {
     // For a user, how many fluid ounces they consumed for a specific day
+    return this.hydrationData.find(x => x.date === date).numOunces;
   }
 
   calcWeeklyHydration() {

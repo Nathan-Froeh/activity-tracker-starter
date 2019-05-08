@@ -26,4 +26,10 @@ describe('Hydration', function() {
     expect(hydration.calcAllTimeHydration()).to.equal(58)
   })
 
+  it('should return hydration by specific date', () => {
+    expect(hydration.calcDateHydration("06/05/2019")).to.equal(64)
+    expect(hydration.calcDateHydration("09/05/2019")).to.equal(40)
+    expect(hydration.calcDateHydration("15/05/2019")).to.equal(59)
+  })
+
 })
