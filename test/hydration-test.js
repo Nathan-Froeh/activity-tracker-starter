@@ -1,8 +1,11 @@
-const chai = require('chai');
-const expect = chai.expect;
 
-const testUser = require('../src/testUser');
-const Hydration = require('../src/Hydration');
+if(typeof module !== undefined) {
+  var chai = require('chai');
+  var expect = chai.expect;
+  
+  var testUser = require('../src/testUser');
+  var Hydration = require('../src/Hydration');
+}
 
 describe('Hydration', function() {
   let hydration;

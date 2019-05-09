@@ -1,8 +1,9 @@
-const chai = require('chai');
-const expect = chai.expect;
-
-const testUser = require('../src/testUser');
-const Sleep = require('../src/Sleep');
+if(typeof module !== undefined) {
+var chai = require('chai');
+var expect = chai.expect;
+var testUser = require('../src/testUser');
+var Sleep = require('../src/Sleep');
+}
 
 describe('Sleep', function() {
   let sleep;
@@ -49,8 +50,6 @@ describe('Sleep', function() {
   it('should return an array of the last 7 days sleep time starting by given date', () => {
     expect(sleep.getSleepQulityByWeek("07/05/2019")).to.deep.equal([4.8, 1.9, 3.4, 4.3, 3.5, 1.7, 3.2])
   })
-
-
 
 
 })

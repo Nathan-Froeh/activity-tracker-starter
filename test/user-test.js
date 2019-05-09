@@ -1,8 +1,11 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const User = require('../src/User');
-const testUser = require('../src/testUser');
+
+if(typeof module !== undefined) {
+  var User = require('../src/User');
+  var testUser = require('../src/testUser');
+}
 
 const testPerson = {
   "id": 1,

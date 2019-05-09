@@ -1,9 +1,12 @@
-const chai = require('chai');
-const expect = chai.expect;
 
-const User = require('../src/User');
-const testUser = require('../src/testUser');
-const UserRepository = require('../src/UserRepository');
+if(typeof module !== undefined) {
+  var chai = require('chai');
+  var expect = chai.expect;
+  
+  var User = require('../src/User');
+  var testUser = require('../src/testUser');
+  var UserRepository = require('../src/UserRepository');
+}
 
 describe('UserRepository', function() {
   let userRepository;
