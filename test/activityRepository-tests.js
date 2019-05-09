@@ -4,7 +4,7 @@ const ActivityRepository = require('../src/activity-repository');
 const testUser = require('../src/testUser');
 
 
-describe('User', function() {
+describe('Activity Repository', function() {
   let activityRepository;
   beforeEach(() => {
     activityRepository = new ActivityRepository(testUser.testActivityData);
@@ -19,9 +19,16 @@ describe('User', function() {
     expect(activityRepository).to.be.an.instanceof(ActivityRepository);
   })
 
-  it.only('should hold the Activity Data', () => {
+  it('should hold the Activity Data', () => {
     expect(activityRepository.activityData).to.deep.equal(testUser.testActivityData);
   })
 
+  it('should hold the Activity Data', () => {
+    expect(activityRepository.activityData).to.deep.equal(testUser.testActivityData);
+  })
 
+  it.only('should tell the average user stairs climb on any given day', () => {
+    expect(activityRepository.calcAvgStairClimb('07/05/2019')).to.equal(16);
+    expect(activityRepository.calcAvgStairClimb('07/11/2019')).to.equal(17);
+  })
 })
