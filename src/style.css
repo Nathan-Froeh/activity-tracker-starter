@@ -1,15 +1,22 @@
 *{
   box-sizing: border-box;
-  border: solid 1px red;
   padding: 0;
+  margin: 0;
 }
 
 body {
   display: flex;
 }
 
+button:focus {outline:0;}
+
 aside {
-  width: 20%;
+  flex: 1;
+  background-color: #17252A;
+  color: #FEFFFF;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -17,11 +24,55 @@ ul {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  flex: 5;
+  background-color: #3AAFA9;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  box-sizing: border-box;
+  padding: 20px
 }
 
-section {
-  height: 200px;
-  width: 200px;
+.box {
+  background-color: #FEFFFF;
+  border: 3px solid #2B7A7A;
+  padding: 7px;
 }
+
+.fire__image {
+  width: 30%;
+  display: block;
+  margin: 15px auto;
+}
+.welcome,
+.fit__lit {
+  text-align: center;
+  margin: 15px;
+}
+
+.date__input {
+  width: 100%;
+  height: 25px;
+  border: none;
+  margin: 15px 0;
+}
+
+.hide__user__card {
+  width: 100%;
+  height: 25px;
+  background-color: #2B7A7A;
+  color: #FEFFFF;
+  margin: 3px 0 3px 0;
+  border: none;
+}
+
+.user--card {
+  display: none;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+
+
+

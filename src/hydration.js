@@ -19,7 +19,7 @@ class Hydration {
   calcWeeklyHydration(date) {
     // how many fluid ounces of water consumed each day over the course of a week
     let index = this.hydrationData.findIndex(x => x.date === date)
-    let stuff = this.hydrationData.slice(index, index + 7)
+    let stuff = this.hydrationData.slice(index - 6, index + 1) 
     return stuff.map(x => x.numOunces)
   }
 
