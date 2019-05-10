@@ -28,21 +28,21 @@ describe('SleepRepository', function() {
   })
 
   it('should return users who average sleep quality over 3 for a week', () => {
-    expect(sleepRepository.calcTopQualitySleepWeek('06/05/2019'))
+    expect(sleepRepository.getTopQualityIndex('06/05/2019'))
       .to.deep.equal([1, 2, 3, 4])
   })
 
   it('should return user with most sleep by specified week', () => {
-    expect(sleepRepository.calcLongestSleepWeek('06/05/2019')).to.deep.equal(1)
+    expect(sleepRepository.getLongestSleeper('06/05/2019')).to.deep.equal(1)
   })
 
-  it('should return top 5 most efficient sleepers in array', () => {
-    
+  it('should return top 3 most efficient sleepers of the week in array', () => {
+    expect(sleepRepository.calcEfficientSleep('06/05/2019')).to.deep.equal([1, 2, 4])
   })
 
 })
 
-//57.7
-//52.6
-//51.2
-//52.7
+//42.68 //
+//42.66 //
+//41.1 //
+//41.3 //
