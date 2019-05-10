@@ -6,6 +6,7 @@ $(document).ready(() => {
     let randomNumber = Math.floor(Math.random() * userData.length - 1)
     user = new User(userData[randomNumber])
     getHydrationData(randomNumber)
+    getActivityData(randomNumber, user)
   }
 
   makeRandomUser() 
@@ -18,8 +19,11 @@ $(document).ready(() => {
 
   function getHydrationData(id) {
     let data = hydrationData.find(x => x.userID === id + 1)
-    hydration = new Hydration(data)
-    console.log(hydration)
+    hydration = new Hydration(data.hydrationData)
+  }
+  function getActivityData(id) {
+    let data = activityData.find(x => x.userID === id + 1)
+    activity = new Activity(data.activityData)
   }
 
 

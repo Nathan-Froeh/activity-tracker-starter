@@ -33,9 +33,7 @@ class Activity {
     //should return top climbing date for a user'
     return this.activityData.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)[0].date
   }
-  getAllUserAvgStepByDate(date, allUserData) {
-    //for all users, should return avg of stairs climbed for spec date
-  }
+
 }
 if (typeof module !== 'undefined') {
   module.exports = Activity;

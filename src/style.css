@@ -1,7 +1,8 @@
 *{
   box-sizing: border-box;
-  border: solid 1px red;
+  /* border: solid 1px red; */
   padding: 0;
+  margin: 0;
 }
 
 body {
@@ -9,7 +10,10 @@ body {
 }
 
 aside {
-  width: 20%;
+  flex: 1;
+  background-color: #17252A;
+  color: #FEFFFF;
+  padding: 15px;
 }
 
 ul {
@@ -17,11 +21,24 @@ ul {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  flex: 4;
+  background-color: #3AAFA9;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  box-sizing: border-box;
+  padding: 20px
 }
 
-section {
-  height: 200px;
-  width: 200px;
+.box {
+  background-color: #FEFFFF;
+  border: 3px solid #2B7A7A;
+}
+
+.fire_image {
+  width: 50%;
+  display: block;
+  margin: auto;
 }
