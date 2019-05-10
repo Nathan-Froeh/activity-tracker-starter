@@ -32,9 +32,13 @@ describe('SleepRepository', function() {
       .to.deep.equal([1, 2, 3, 4])
   })
 
+  it('should return user with most sleep by specified week', () => {
+    expect(sleepRepository.calcLongestSleepWeek('06/05/2019')).to.deep.equal(1)
+  })
+
 })
 
-//24.4  // 3.5
-//22.6  // 3.2
-//20.8  // 2.9
-//21.6 // 3.1
+//57.7
+//52.6
+//51.2
+//52.7
