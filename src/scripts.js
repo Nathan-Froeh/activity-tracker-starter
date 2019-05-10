@@ -26,6 +26,10 @@ $(document).ready(() => {
     activity = new Activity(data.activityData)
   }
 
+  $(".hide__user__card").click(function() {
+    $('.user--card').slideToggle('slow')
+  })
+
 
 
 });

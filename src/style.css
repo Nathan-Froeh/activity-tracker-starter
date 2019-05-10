@@ -13,7 +13,7 @@ aside {
   flex: 1;
   background-color: #17252A;
   color: #FEFFFF;
-  padding: 15px;
+  padding: 20px;
 }
 
 ul {
@@ -21,7 +21,7 @@ ul {
 }
 
 main {
-  flex: 4;
+  flex: 5;
   background-color: #3AAFA9;
   min-height: 100vh;
   max-height: 100vh;
@@ -35,10 +35,25 @@ main {
 .box {
   background-color: #FEFFFF;
   border: 3px solid #2B7A7A;
+  padding: 7px;
 }
 
-.fire_image {
-  width: 50%;
+.fire__image {
+  width: 40%;
   display: block;
-  margin: auto;
+  margin: 15px auto;
+}
+
+.fit__lit {
+  text-align: center;
+  margin: 15px;
+}
+
+.hide__user__card {
+  width: 100%;
+  border: none;
+  height: 20px;
+  background-color: #17252A;
+  color: #2B7A7A;
+  margin: 3px 0 3px 0;
 }
