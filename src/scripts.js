@@ -55,7 +55,9 @@ $(document).ready(() => {
     let stepGoal = activity.getStepGoal === true ? "You reached your step goal!" : "You have not reached your step goal, keep on walking!"
     let milesWalked = activity.getMilesWalked(today);
     let activeTime = activity.getActiveTimeByDate(today)
+    let weeklyAverage = activity.getWeeklyAvgActive(today)
     $(".current--active--box").append(`<p>Active Time: ${activeTime} minutes</p>`);
+    $(".current--active--box").append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
     $(".current--active--box").append(`<p>Miles Walked: ${milesWalked}</p>`);
     $(".current--active--box").append(`<p>${stepGoal}</p>`);
   }

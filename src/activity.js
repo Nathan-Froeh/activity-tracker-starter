@@ -17,7 +17,7 @@ class Activity {
   getWeeklyAvgActive(date) {
     //should return a users average active time per a week
     let index = this.activityData.findIndex(x => x.date === date)
-    let weeksActivity = this.activityData.slice(index, index + 7).map(day => day.minutesActive)
+    let weeksActivity = this.activityData.slice(index - 6, index + 1).map(day => day.minutesActive)
     return Math.floor(weeksActivity.reduce((accu, day) => accu += day) / 7)
   }
   getStepGoal(date) {
