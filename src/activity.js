@@ -5,8 +5,9 @@ class Activity {
   }
 
   getMilesWalked(date) {
-    return this.activityData.find(x => x.date === date).numSteps 
+    let milesWalked = this.activityData.find(x => x.date === date).numSteps 
     * this.user.userData.strideLength * 0.00018939
+    return milesWalked.toFixed(2)
   }
 
   getActiveTimeByDate(date) {
