@@ -36,6 +36,10 @@ describe('SleepRepository', function() {
     expect(sleepRepository.calcLongestSleepWeek('06/05/2019')).to.deep.equal(1)
   })
 
+  it('should return top 5 most efficient sleepers in array', () => {
+    
+  })
+
 })
 
 //57.7
