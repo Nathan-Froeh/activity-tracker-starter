@@ -74,5 +74,6 @@ main {
   align-self: flex-start;
 }
 
-
-
+.box--headline {
+  text-align: center;
+}

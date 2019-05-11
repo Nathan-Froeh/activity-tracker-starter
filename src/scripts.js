@@ -50,18 +50,30 @@ $(document).ready(() => {
   }
   loadHydration(hydration)
 
-  function loadActivity(activity) {
+  function loadDailyActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
-    let stepGoal = activity.getStepGoal === true ? "You reached your step goal!" : "You have not reached your step goal, keep on walking!"
+    let stepGoal = activity.getStepGoal(today) === true ? 
+      'You have reached your step goal!' : 'Keep on walking! You have not reached your step goal'
     let milesWalked = activity.getMilesWalked(today);
     let activeTime = activity.getActiveTimeByDate(today)
-    let weeklyAverage = activity.getWeeklyAvgActive(today)
-    $(".current--active--box").append(`<p>Active Time: ${activeTime} minutes</p>`);
-    $(".current--active--box").append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
-    $(".current--active--box").append(`<p>Miles Walked: ${milesWalked}</p>`);
-    $(".current--active--box").append(`<p>${stepGoal}</p>`);
+    $(".active__day__info").append(`<p>Active Time: ${activeTime} minutes</p>`);
+    $(".active__day__info").append(`<p>Miles Walked: ${milesWalked}</p>`);
+    $(".active__day__info").append(`<p>${stepGoal}</p>`);
   }
-  loadActivity(activity)
+  function loadWeeklyActivity(activity) {
+    let today = activity.activityData[activity.activityData.length - 1].date
+    let weeklyAverage = activity.getWeeklyAvgActive(today)
+    $(".active__week__tab").append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
+    $(".active__week__tab").hide()
+  }
+  loadDailyActivity(activity)
+  loadWeeklyActivity(activity)
+  
+  $( ".current--active--box" ).click(function() {
+    $(".active__day__tab").toggle()
+    $(".active__week__tab").toggle()
+  });
+
 
  
 
