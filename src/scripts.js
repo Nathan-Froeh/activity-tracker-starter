@@ -52,13 +52,22 @@ $(document).ready(() => {
 
   function loadDailyActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
+    let activeTime = activity.getActiveTimeByDate(today)
+    let milesWalked = activity.getMilesWalked(today);
+    loadDailyStepGoal(today)
+    $(".active__day__time__info").append(`<img src = '../images/stopwatch.svg' class = 'stopwatch'>
+      <p>Active Time: ${activeTime} minutes</p>`);
+    $(".active__day__miles__info").append(`<img src = '../images/footsteps.svg' class = 'footsteps'>
+    <p>Miles Walked: ${milesWalked}</p>`);
+  }
+  
+  function loadDailyStepGoal(today) {
     let stepGoal = activity.getStepGoal(today) === true ? 
       'You have reached your step goal!' : 'Keep on walking! You have not reached your step goal'
-    let milesWalked = activity.getMilesWalked(today);
-    let activeTime = activity.getActiveTimeByDate(today)
-    $(".active__day__info").append(`<p>Active Time: ${activeTime} minutes</p>`);
-    $(".active__day__info").append(`<p>Miles Walked: ${milesWalked}</p>`);
-    $(".active__day__info").append(`<p>${stepGoal}</p>`);
+    $(".active__day__goal__info").append(`<p>${stepGoal}</p>`);
+    let dailyPercent = activity.getStepGoalPercentage(today)
+    $("#progress__bar__active__goal").css( "width", dailyPercent ) 
+    $("#active__goal__percentage").text(dailyPercent)
   }
   function loadWeeklyActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
@@ -73,6 +82,8 @@ $(document).ready(() => {
     $(".active__day__tab").toggle()
     $(".active__week__tab").toggle()
   });
+
+
 
 
  

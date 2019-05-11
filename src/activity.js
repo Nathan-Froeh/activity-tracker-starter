@@ -25,6 +25,13 @@ class Activity {
     let daySteps = this.activityData.find(x => x.date === date).numSteps 
     return this.user.userData.dailyStepGoal < daySteps
   }
+
+  getStepGoalPercentage(date) {
+    //should return whether a user reached their step goal on specific date
+    let daySteps = this.activityData.find(x => x.date === date).numSteps 
+    return `${Math.floor(daySteps / this.user.userData.dailyStepGoal * 100)}%`
+  }
+
   getExceedStepGoal() {
     //should return dates that user passed goals
     let daysOverGoal = this.activityData.filter(day => day.numSteps > this.user.userData.dailyStepGoal)
