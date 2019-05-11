@@ -109,7 +109,7 @@ main {
   flex-direction: row;
   width:100%;
   justify-content:center;
-  padding: 10px;
+  padding: 20px 10px;
 }
 
 .progress__bar__border {

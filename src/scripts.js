@@ -62,9 +62,11 @@ $(document).ready(() => {
   }
   
   function loadDailyStepGoal(today) {
+    let steps = activity.getSteps(today)
     let stepGoal = activity.getStepGoal(today) === true ? 
-      'You have reached your step goal!' : 'Keep on walking! You have not reached your step goal'
+      'You have reached your step goal!': 'Keep on walking! You have not reached your goal!'
     $(".active__day__goal__info").append(`<p>${stepGoal}</p>`);
+    $(".active__day__goal__info").append(`<p>You walked ${steps} steps today</p>`);
     let dailyPercent = activity.getStepGoalPercentage(today)
     $("#progress__bar__active__goal").css( "width", dailyPercent ) 
     $("#active__goal__percentage").text(dailyPercent)
