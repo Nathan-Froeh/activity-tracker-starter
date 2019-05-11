@@ -35,8 +35,8 @@ describe('Activity', function() {
   })
 
   it('should return a users miles walked on specific date', () => {
-    expect(activity.getMilesWalked("08/05/2019")).to.equal(2387 * 4.7 * 0.00018939)
-    expect(activity.getMilesWalked("14/05/2019")).to.equal(3338 * 4.7 * 0.00018939)
+    expect(activity.getMilesWalked("08/05/2019")).to.equal((2387 * 4.7 * 0.00018939).toFixed(2))
+    expect(activity.getMilesWalked("14/05/2019")).to.equal((3338 * 4.7 * 0.00018939).toFixed(2))
   })
 
   it('should return a users active time on specific date', () => {

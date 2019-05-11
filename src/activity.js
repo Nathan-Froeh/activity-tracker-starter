@@ -5,8 +5,9 @@ class Activity {
   }
 
   getMilesWalked(date) {
-    return this.activityData.find(x => x.date === date).numSteps 
+    let milesWalked = this.activityData.find(x => x.date === date).numSteps 
     * this.user.userData.strideLength * 0.00018939
+    return milesWalked.toFixed(2)
   }
 
   getActiveTimeByDate(date) {
@@ -16,7 +17,7 @@ class Activity {
   getWeeklyAvgActive(date) {
     //should return a users average active time per a week
     let index = this.activityData.findIndex(x => x.date === date)
-    let weeksActivity = this.activityData.slice(index, index + 7).map(day => day.minutesActive)
+    let weeksActivity = this.activityData.slice(index - 6, index + 1).map(day => day.minutesActive)
     return Math.floor(weeksActivity.reduce((accu, day) => accu += day) / 7)
   }
   getStepGoal(date) {
@@ -33,9 +34,7 @@ class Activity {
     //should return top climbing date for a user'
     return this.activityData.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)[0].date
   }
-  getAllUserAvgStepByDate(date, allUserData) {
-    //for all users, should return avg of stairs climbed for spec date
-  }
+
 }
 if (typeof module !== 'undefined') {
   module.exports = Activity;

@@ -43,27 +43,9 @@ class Sleep {
     return stuff.map(x => x.sleepQuality)
   }
 
-  calcTotalUserSleepQuality() {
-    // For all users, the average sleep quality
-  }
-
-  calcTopQualitySleepWeek() {
-    // Find all users who average a sleep quality greater than 3 for a given week
-  }
-
-  calcLongestSleepWeek() {
-    // find the users who slept the most number of hours (one or more if they tied)
-  }
-
-  calcEfficientSleep() {
-    // [find top 5 best sleeper (hours * quality) / days] and rating
-  }
-
-
-
 
 }
 
-if(typeof module !== "undefined") {
+if (typeof module !== "undefined") {
   module.exports = Sleep;
 }
