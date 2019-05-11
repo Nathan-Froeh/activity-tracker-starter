@@ -9,7 +9,7 @@ $(document).ready(() => {
   }
 
   function makeRandomUser() {
-    let randomNumber = Math.floor(Math.random() * userData.length - 1)
+    let randomNumber = Math.floor(Math.random() * userData.length)
     user = new User(userData[randomNumber])
     getHydrationData(randomNumber)
     getActivityData(randomNumber)
