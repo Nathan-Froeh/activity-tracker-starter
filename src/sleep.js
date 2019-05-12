@@ -43,6 +43,11 @@ class Sleep {
     return stuff.map(x => x.sleepQuality)
   }
 
+  getSleepDates(date) {
+    let index = this.sleepData.findIndex(x => x.date === date)
+    let stuff = this.sleepData.slice(index - 6, index + 1)
+    return stuff.map(x => x.date)
+  }
 
 }
 

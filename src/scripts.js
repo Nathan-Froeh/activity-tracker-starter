@@ -59,7 +59,7 @@ $(document).ready(() => {
   loadHydration(hydration)
 
   function loadSleep(sleep) {
-    var today = sleep.sleepData[sleep.sleepData.length - 1].date
+    let today = sleep.sleepData[sleep.sleepData.length - 1].date
     let sleepTime = sleep.calcSleepTime()
     let sleepQuality = sleep.calcSleepQuality()
     let sleepTimeDate = sleep.getSleepTimeByDate(today)
@@ -90,12 +90,18 @@ $(document).ready(() => {
   }
   loadActivity(activity)
   
-  
+
+  // make function to automate dates
+  // find object by date entered
+  // assign a var to the array of sliced dates
+
+  let date = sleep.sleepData[sleep.sleepData.length - 1].date;
+  console.log(sleep.sleepData[sleep.sleepData.length - 1])
   var ctx = document.getElementById('sleep-chart');
   var sleepChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', `${sleep.sleepData[sleep.sleepData.length - 1].date}`],
+      labels: [`${sleep.getSleepDates(date)[0]}`, `${sleep.getSleepDates(date)[1]}`, `${sleep.getSleepDates(date)[2]}`, `${sleep.getSleepDates(date)[3]}`, `${sleep.getSleepDates(date)[4]}`, `${sleep.getSleepDates(date)[5]}`, `${sleep.getSleepDates(date)[6]}`],
       datasets: [{
         label: 'Hours of Sleep',
         data: [4, 4, 9, 4, 4, 4, 2],
