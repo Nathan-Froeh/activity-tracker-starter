@@ -73,6 +73,7 @@ class SleepRepository {
     return topThree.filter(x => x)
   }
 }
+
 // sort the array into a new array
 // take the first three values (slice)
 // map through the first array and find the index of the number in the parent array and return it

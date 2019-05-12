@@ -5,11 +5,6 @@ $(document).ready(() => {
   let sleep;
   let activity;
 
-  function getTodaysDate () {
-    let today = new Date
-    return `"${today.getDate()}/0${(today.getMonth() + 1)}/${today.getFullYear()}"`
-  }
-
   function makeRandomUser() {
     let randomNumber = Math.floor(Math.random() * userData.length)
     user = new User(userData[randomNumber])
@@ -64,7 +59,7 @@ $(document).ready(() => {
   loadHydration(hydration)
 
   function loadSleep(sleep) {
-    let today = sleep.sleepData[sleep.sleepData.length - 1].date
+    var today = sleep.sleepData[sleep.sleepData.length - 1].date
     let sleepTime = sleep.calcSleepTime()
     let sleepQuality = sleep.calcSleepQuality()
     let sleepTimeDate = sleep.getSleepTimeByDate(today)
@@ -81,7 +76,7 @@ $(document).ready(() => {
     console.log(sleepTime)
   }
   loadSleep(sleep)
-
+  
   function loadActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
     let stepGoal = activity.getStepGoal === true ? "You reached your step goal!" : "You have not reached your step goal, keep on walking!"
@@ -94,7 +89,47 @@ $(document).ready(() => {
     $(".current--active--box").append(`<p>${stepGoal}</p>`);
   }
   loadActivity(activity)
-
- 
-
+  
+  
+  var ctx = document.getElementById('sleep-chart');
+  var sleepChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', `${sleep.sleepData[sleep.sleepData.length - 1].date}`],
+      datasets: [{
+        label: 'Hours of Sleep',
+        data: [4, 4, 9, 4, 4, 4, 2],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 129, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 129, 64, 1)'
+        ],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 });
+
+
