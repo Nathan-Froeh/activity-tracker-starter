@@ -14,11 +14,18 @@ class Activity {
     //should return a users active time on specific date
     return this.activityData.find(x => x.date === date).minutesActive 
   }
+  getWeeklyActive(date) {
+    //should return a users active time per  week
+    let index = this.activityData.findIndex(x => x.date === date)
+    let weeksActivity = this.activityData.slice(index - 6, index + 1)
+    return weeksActivity
+  }
   getWeeklyAvgActive(date) {
     //should return a users average active time per a week
     let index = this.activityData.findIndex(x => x.date === date)
     let weeksActivity = this.activityData.slice(index - 6, index + 1).map(day => day.minutesActive)
-    return Math.floor(weeksActivity.reduce((accu, day) => accu += day) / 7)
+    let weeksAvgActivity = Math.floor(weeksActivity.reduce((accu, day) => accu += day) / 7)
+    return weeksAvgActivity
   }
   getStepGoal(date) {
     //should return whether a user reached their step goal on specific date
