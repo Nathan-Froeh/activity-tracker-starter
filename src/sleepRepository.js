@@ -6,11 +6,15 @@ class SleepRepository {
 
   calcTotalUserSleepQuality() {
     // For all users, the average sleep quality
+    let count = 0;
     let total = this.users.reduce((acc, cur) => {
-      cur.sleepData.forEach(x => acc = acc + x.sleepQuality)
+      cur.sleepData.forEach(x => {
+        count++;
+        return acc = acc + x.sleepQuality
+      })
       return acc
     }, 0) 
-    return Number((total / 40).toFixed(1))
+    return Number((total / count).toFixed(1))
   }
 
   calcTopQualitySleepWeek(date) {
@@ -73,6 +77,7 @@ class SleepRepository {
     return topThree.filter(x => x)
   }
 }
+
 // sort the array into a new array
 // take the first three values (slice)
 // map through the first array and find the index of the number in the parent array and return it

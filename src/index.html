@@ -4,11 +4,12 @@
     <meta charset = "UTF-8">
     <title>Fit Lit</title>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   </head>
   <body>
     <aside>
       <header>
-        <img class ='fire__image'  src='../images/fire.svg' alt='fire_image'>
+        <img class ='fire__image'  src='../images/fire.svg' alt='cartoon_fire_icon'>
         <h1 class = 'fit__lit'>Fit Lit</h1>
         <h2 class = 'welcome'>Hello <span class = 'welcome welcome__name'></span></h2>
         <input class = 'date__input'>
@@ -23,23 +24,38 @@
     </aside>
     <main>
       <section class = 'box water--box'>water</section>
-      <section class = 'box sleep--box'>sleep</section>
-      <section class = 'box current--active--box'>
-          <ul class= 'current--active--tabs'>
-            <li class = 'tab-link active__day__tab' data-tab = 'tab-1'>
-              <h1 class = "box--headline">DAILY</h1>
-              <article class = 'tab__info active__day__info'></li>
-            </li>
-            <li class='tab-link active__week__tab'data-tab= "tab-2">
-              <h1 class = "box--headline">WEEKLY</h1>
-              <article class = 'tab__info active__week__info'></article>   
-          </ul>
+      <section class = 'box sleep--box'>
+        <canvas id = "sleep-chart"></canvas>
+      </section>
+    <section class = 'box current--active--box'>
+      <ul class= 'current--active--tabs'>
+        <li class = 'tab-link active__day__tab' data-tab = 'tab-1'>
+          <h1 class = "box--headline">DAILY</h1>
+          <div class = 'active__day__timemiles'>
+            <article class = 'tab__info active__day__time__info'></article>
+            <article class = 'tab__info active__day__miles__info'></article>
+          </div>
+          <article class = 'tab__info active__day__goal__info'>
+            <div class="progress--bar--wrapper">
+              <div class="progress__bar__border">
+                <div class = "progress__bar" id = "progress__bar__active__goal">
+                  <span id="active__goal__percentage"></span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class='tab-link active__week__tab'data-tab= "tab-2">
+          <h1 class = "box--headline">WEEKLY</h1>
+          <article class = 'tab__info active__week__info'>
+          </article>
+        </li>     
+      </ul>
       </section>
       <section class = 'box average--active--box'>average active</section>
     </main>
-
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="./user.js"></script>
     <script type="text/javascript" src="./userRepository.js"></script>
     <script type="text/javascript" src="./sleep.js"></script>
@@ -50,5 +66,6 @@
     <script type="text/javascript" src="../data/sleep.js"></script>
     <script type="text/javascript" src="../data/activity.js"></script>
     <script type="text/javascript" src="./scripts.js"></script>
+    <script type="text/javascript" src="./charts.js"></script>
   </body>
 </html>

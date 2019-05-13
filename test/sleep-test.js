@@ -44,11 +44,20 @@ describe('Sleep', function() {
   })
 
   it('should return an array of the last 7 days sleep time starting by given date', () => {
-    expect(sleep.getSleepTimeByWeek("07/05/2019")).to.deep.equal([10.7, 8.1, 4.5, 10.7, 5.6, 10.1, 10.1])
-  })
+    expect(sleep.getSleepTimeByWeek("15/05/2019")).to.deep.equal([4.5, 10.7, 5.6, 10.1, 10.1, 10.5, 6.1])
+  }) 
 
   it('should return an array of the last 7 days sleep time starting by given date', () => {
-    expect(sleep.getSleepQulityByWeek("07/05/2019")).to.deep.equal([4.8, 1.9, 3.4, 4.3, 3.5, 1.7, 3.2])
+    expect(sleep.getSleepQulityByWeek("15/05/2019")).to.deep.equal([3.4, 4.3, 3.5, 1.7, 3.2, 2, 2.9 ])
+  })
+
+  // make function to automate dates
+  // find object by date entered
+  // assign a var to the array of sliced dates
+  it('should return array of dates for a week from date given', () => {
+    expect(sleep.getSleepDates("15/05/2019")).to.deep.equal(["09/05/2019"
+      , "10/05/2019", "11/05/2019", "12/05/2019", "13/05/2019", "14/05/2019"
+      , "15/05/2019"])
   })
 
 
