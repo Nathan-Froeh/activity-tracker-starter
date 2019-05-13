@@ -27,8 +27,8 @@ describe('Activity Repository', function() {
     expect(activityRepository.activityData).to.deep.equal(testUser.testActivityData);
   })
 
-  // it('should tell the average user stairs climb on any given day', () => {
-  //   expect(activityRepository.calcAvgStairClimb('07/05/2019')).to.equal(16);
-  //   expect(activityRepository.calcAvgStairClimb('07/11/2019')).to.equal(17);
-  // })
+  it('should tell the average user stairs climb on any given day', () => {
+    expect(activityRepository.calcAvgStairClimb('07/05/2019')).to.equal(16);
+    expect(activityRepository.calcAvgStairClimb('11/05/2019')).to.equal(17);
+  })
 })
