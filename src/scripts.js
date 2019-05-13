@@ -30,6 +30,7 @@ $(document).ready(() => {
     const data = hydrationData.find(x => x.userID === id + 1)
     hydration = new Hydration(data.hydrationData)
   }
+
   function getActivityData(id) {
     const data = activityData.find(x => x.userID === id + 1)
     activity = new Activity(data.activityData, user)
@@ -66,7 +67,7 @@ $(document).ready(() => {
     let stepGoal = activity.getStepGoal(today) === true ? 
       'You have reached your step goal!': 'Keep on walking! You have not reached your goal!'
     $(".active__day__goal__info").append(`<p>${stepGoal}</p>`);
-    $(".active__day__goal__info").append(`<p>You walked ${steps} steps today</p>`);
+    $(".active__day__goal__info").append(`<p>You walked <b>${steps} </b>steps today.</p>`);
     let dailyPercent = activity.getStepGoalPercentage(today)
     $("#progress__bar__active__goal").css( "width", dailyPercent ) 
     $("#active__goal__percentage").text(dailyPercent)
@@ -74,9 +75,26 @@ $(document).ready(() => {
   function loadWeeklyActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
     let weeklyAverage = activity.getWeeklyAvgActive(today)
-    $(".active__week__tab").append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
+    let weeklyData = createWeeklyData(today)
     $(".active__week__tab").hide()
+    $(".active__week__tab").append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
+    $(".active__week__tab").append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
+    <th>Minutes</th><th>Stairs</th>${weeklyData}</table>`);
   }
+  function createWeeklyData(day) {
+    let weeksActivityData = activity.getWeeklyActive(day)
+    let sortedData = weeksActivityData.map((day, index) => {
+      return `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${day.numSteps} </td>
+          <td>${day.minutesActive}</td> 
+          <td>${day.flightsOfStairs}</td>
+        </tr>`
+    })
+    return sortedData.join(' ')
+  }
+
   loadDailyActivity(activity)
   loadWeeklyActivity(activity)
   
@@ -85,6 +103,7 @@ $(document).ready(() => {
     $(".active__week__tab").toggle()
   });
 
+  
 
 
 
