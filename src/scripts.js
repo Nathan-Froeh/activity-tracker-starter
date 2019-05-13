@@ -71,7 +71,7 @@ function loadSleep(sleep) {
   $('.sleep--box').append(`<p>Sleep Time by Date: ${sleepTimeDate} hours<p>`)
   $('.sleep--box').append(`<p>Sleep Quality by Date: ${sleepQualityDate} hours<p>`)
   // $('.sleep--box').append(`<p>Your Average Sleep Time: ${sleepTimeWeek} hours<p>`)
-  $('.sleep--box').append(`<p>Your Average Sleep quality: ${sleepQualityWeek} out of 5<p>`)
+  // $('.sleep--box').append(`<p>Your Average Sleep quality: ${sleepQualityWeek} out of 5<p>`)
   // console.log(today)
   // console.log(sleepTime)
 }
