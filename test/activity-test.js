@@ -47,6 +47,7 @@ describe('Activity', function() {
   it('should return a users average active time per a week', () => {
     expect(activity.getWeeklyAvgActive("14/05/2019")).to.equal(190)
   })
+  
   it('should return whether a user reached their step goal on specific date', () => {
     expect(activity.getStepGoal("07/05/2019")).to.equal(false)
     expect(activity.getStepGoal("10/05/2019")).to.equal(true)
@@ -57,5 +58,14 @@ describe('Activity', function() {
   it('should return top climbing date for a user', () => {
     expect(activity.getTopClimbingRecord()).to.equal("06/05/2019")
   })
+
+  it('should get step goal percentage', () => {
+    expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92%')
+  })
+
+  it('should get all of the weeks activity', () => {
+    expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92%')
+  })
+
 
 })
