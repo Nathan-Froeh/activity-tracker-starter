@@ -34,5 +34,20 @@ describe('Challenge', function() {
     expect(challenge.challengers.length).to.equal(4)
   })
 
+  it('challengers should not include current user id', () => {
+    challenge.generateChallengers(testUser.testUserData)
+    expect(challenge.challengers).to.not.include(1)
+    challenge.generateChallengers(fullUserList)
+    expect(challenge.challengers).to.not.include(1)
+  })
+
+  it('should return array with the total steps for users in challenge', () => {
+    challenge.challengers = [2, 3, 4]
+    expect(challenge.getChallengeResults(user)).to.deep.equal([])
+  })
+
 
 })
+
+// 51,862
+//
