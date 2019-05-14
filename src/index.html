@@ -23,7 +23,9 @@
       </ul>
     </aside>
     <main>
-      <section class = 'box water--box'>water</section>
+      <section class = 'box water--box'>
+        <canvas id = 'hydration-chart'></canvas>
+      </section>
       <section class = 'box sleep--box'>
         <canvas id = "sleep-chart"></canvas>
       </section>
@@ -36,23 +38,29 @@
             <article class = 'tab__info active__day__miles__info'></article>
           </div>
           <article class = 'tab__info active__day__goal__info'>
-            <div class="progress--bar--wrapper">
+            <progress id = 'progress__bar__activity' value="50" max="100"></progress>
+            <p = id ='step__percentage'></p>
+            <!-- <div class="progress--bar--wrapper">
               <div class="progress__bar__border">
                 <div class = "progress__bar" id = "progress__bar__active__goal">
                   <span id="active__goal__percentage"></span>
                 </div>
               </div>
-            </div>
+            </div> -->
           </article>
         </li>
         <li class='tab-link active__week__tab'data-tab= "tab-2">
-          <h1 class = "box--headline">WEEKLY</h1>
+          <h1 class = 'box--headline'>WEEKLY</h1>
           <article class = 'tab__info active__week__info'>
           </article>
         </li>     
       </ul>
       </section>
-      <section class = 'box average--active--box'>average active</section>
+      <section class = 'box average--active--box'>
+          <canvas id = 'activity-repo-numsteps' height="300px"></canvas>
+          <canvas id = 'activity-repo-active-time' height="300px" ></canvas>
+          <canvas id = 'activity-repo-flightsOfStairs'  ></canvas>
+      </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -65,6 +73,7 @@
     <script type="text/javascript" src="../data/hydration.js"></script>
     <script type="text/javascript" src="../data/sleep.js"></script>
     <script type="text/javascript" src="../data/activity.js"></script>
+    <script type="text/javascript" src="./activityRepository.js"></script>
     <script type="text/javascript" src="./scripts.js"></script>
     <script type="text/javascript" src="./charts.js"></script>
   </body>

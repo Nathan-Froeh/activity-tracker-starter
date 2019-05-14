@@ -4,6 +4,8 @@ let user;
 let hydration;
 let sleep;
 let activity;
+let activityRepository = new ActivityRepository(activityData)
+
 
 function makeRandomUser() {
   let randomNumber = Math.floor(Math.random() * userData.length)
@@ -59,9 +61,9 @@ function getActivityData(id) {
     let allTimeHydration = hydration.calcAllTimeHydration() 
     let dateHydration = hydration.calcDateHydration(today)
     let weeklyHydration = hydration.calcWeeklyHydration(today)
-    $(".water--box").append(`<p>You drank ${dateHydration} ounces</p>`);
-    $(".water--box").append(`<p>On average you drink ${allTimeHydration} ounces</p>`);
-    $(".water--box").append(`<p>This week you drank ${weeklyHydration} ounces</p>`);
+    $('.water--box').append(`<p>Today you drank ${dateHydration} ounces</p>`);
+    $('.water--box').append(`<p>On average you drink ${allTimeHydration} ounces</p>`);
+    $('.water--box').append(`<p>This week you drank ${weeklyHydration} ounces</p>`);
   }
   loadHydration(hydration)
 
@@ -70,9 +72,9 @@ function getActivityData(id) {
     let activeTime = activity.getActiveTimeByDate(today)
     let milesWalked = activity.getMilesWalked(today);
     loadDailyStepGoal(today)
-    $(".active__day__time__info").append(`<img src = '../images/stopwatch.svg' class = 'stopwatch'>
+    $('.active__day__time__info').append(`<img src = '../images/stopwatch.svg' class = 'stopwatch'>
       <p>Active Time: ${activeTime} minutes</p>`);
-    $(".active__day__miles__info").append(`<img src = '../images/footsteps.svg' class = 'footsteps'>
+    $('.active__day__miles__info').append(`<img src = '../images/footsteps.svg' class = 'footsteps'>
     <p>Miles Walked: ${milesWalked}</p>`);
   }
   
@@ -80,20 +82,24 @@ function getActivityData(id) {
     let steps = activity.getSteps(today)
     let stepGoal = activity.getStepGoal(today) === true ? 
       'You have reached your step goal!': 'Keep on walking! You have not reached your goal!'
-    $(".active__day__goal__info").append(`<p>${stepGoal}</p>`);
-    $(".active__day__goal__info").append(`<p>You walked <b>${steps} </b>steps today.</p>`);
-    let dailyPercent = activity.getStepGoalPercentage(today)
-    $("#progress__bar__active__goal").css( "width", dailyPercent ) 
-    $("#active__goal__percentage").text(dailyPercent)
+    $('.active__day__goal__info').append(`<p>${stepGoal}</p>`);
+    $('.active__day__goal__info').append(`<p>You walked <b>${steps} </b>steps today.</p>`);
+
+    let dailyPercent = activity.getStepGoalPercentage(today) > 100 ? 100 : activity.getStepGoalPercentage(today)
+    // $('#progress__bar__active__goal').css( "width", dailyPercent ) 
+    // $('#active__goal__percentage').text(dailyPercent)
+    $('#progress__bar__activity').val(dailyPercent)
+    $('#step__percentage').append(`${activity.getStepGoalPercentage(today)}%`)
   }
   function loadWeeklyActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
     let weeklyAverage = activity.getWeeklyAvgActive(today)
     let weeklyData = createWeeklyData(today)
-    $(".active__week__tab").hide()
-    $(".active__week__tab").append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
-    $(".active__week__tab").append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
+    $('.active__week__tab').hide()
+    $('.active__week__tab').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
+    $('.active__week__tab').append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
     <th>Minutes</th><th>Stairs</th>${weeklyData}</table>`);
+    $('#activity-repo-flightsOfStairs').hide()
   }
   function createWeeklyData(day) {
     let weeksActivityData = activity.getWeeklyActive(day)
@@ -112,10 +118,17 @@ function getActivityData(id) {
   loadDailyActivity(activity)
   loadWeeklyActivity(activity)
   
-  $( ".current--active--box" ).click(function() {
-    $(".active__day__tab").toggle()
-    $(".active__week__tab").toggle()
+  $( '.current--active--box' ).click(function() {
+    $('.active__day__tab').toggle()
+    $('.active__week__tab').toggle()
   });
+
+$( '.average--active--box' ).click(function() {
+  $('#activity-repo-numsteps').toggle()
+  $('#activity-repo-active-time').toggle()
+  $('#activity-repo-flightsOfStairs').toggle()
+});
+
 
 function loadSleep(sleep) {
   let today = sleep.sleepData[sleep.sleepData.length - 1].date

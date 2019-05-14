@@ -31,4 +31,19 @@ describe('Activity Repository', function() {
     expect(activityRepository.calcAvgStairClimb('07/05/2019')).to.equal(16);
     expect(activityRepository.calcAvgStairClimb('11/05/2019')).to.equal(17);
   })
+
+  it('should tell the average user stairs climb on any given day', () => {
+    expect(activityRepository.calcAvgStairClimb('07/05/2019')).to.equal(16);
+    expect(activityRepository.calcAvgStairClimb('11/05/2019')).to.equal(17);
+  })
+
+  it('should tell the average user steps on any given day', () => {
+    expect(activityRepository.calcAvgSteps('07/05/2019')).to.equal(7452);
+    expect(activityRepository.calcAvgSteps('11/05/2019')).to.equal(3483);
+  })
+
+  it('should tell the average user steps on any given day', () => {
+    expect(activityRepository.calcAvgActive('07/05/2019')).to.equal(96);
+    expect(activityRepository.calcAvgActive('11/05/2019')).to.equal(222);
+  })
 })

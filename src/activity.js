@@ -9,6 +9,10 @@ class Activity {
     * this.user.userData.strideLength * 0.00018939
     return milesWalked.toFixed(2)
   }
+  getStairsClimbByDate(date) {
+    //should return a users active time on specific date
+    return this.activityData.find(x => x.date === date).flightsOfStairs 
+  }
 
   getActiveTimeByDate(date) {
     //should return a users active time on specific date
@@ -42,7 +46,7 @@ class Activity {
   getStepGoalPercentage(date) {
     //should return whether a user reached their step goal on specific date
     let daySteps = this.getSteps(date)
-    return `${Math.floor(daySteps / this.user.userData.dailyStepGoal * 100)}%`
+    return `${Math.floor(daySteps / this.user.userData.dailyStepGoal * 100)}`
   }
 
   getExceedStepGoal() {
