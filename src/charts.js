@@ -155,7 +155,7 @@ var activityRepoActiveTime = new Chart($('#activity-repo-flightsOfStairs'), {
   }, 
   options: {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     scales: {
       yAxes: [{
         ticks: {
@@ -167,4 +167,56 @@ var activityRepoActiveTime = new Chart($('#activity-repo-flightsOfStairs'), {
 });
 
 
-
+console.log(hydration.calcWeeklyHydration(date))
+var hydrationChart = new Chart($('#hydration-chart'), {
+  type: 'line',
+  data: {
+    labels: ['1', '2', '3', '4', '5', '6', '7'],
+    datasets: [{
+      label: 'Hydration By Week',
+      data: hydration.calcWeeklyHydration(date),
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 129, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)',
+        'rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)',
+        'rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)',
+        'rgba(255, 99, 132, 1)'
+      ],
+      borderWidth: 2
+    }, {
+      label: 'Average Hydration',
+      data: [hydration.calcAllTimeHydration(), hydration.calcAllTimeHydration(), hydration.calcAllTimeHydration(),
+        hydration.calcAllTimeHydration(), hydration.calcAllTimeHydration(), hydration.calcAllTimeHydration(), 
+        hydration.calcAllTimeHydration()],
+      backgroundColor: [
+        'rgba(1, 99, 132, 0.2)', 'rgba(1, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 129, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(1, 99, 132, 1)', 'rgba(1, 99, 132, 1)',
+        'rgba(1, 99, 132, 1)', 'rgba(1, 99, 132, 1)',
+        'rgba(1, 99, 132, 1)', 'rgba(1, 99, 132, 1)',
+        'rgba(1, 99, 132, 1)'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
