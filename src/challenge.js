@@ -1,7 +1,7 @@
 
 class Challenge {
-  constructor() {
-
+  constructor(challengers) {
+    this.challengers = challengers;
   }
 }
 

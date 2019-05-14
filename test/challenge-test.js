@@ -9,7 +9,7 @@ if(typeof module !== undefined) {
 describe('Challenge', function() {
   let challenge;
   beforeEach(() => {
-    challenge = new Challenge(testUser.testActivityData);
+    challenge = new Challenge([1, 4]);
   })
 
   it('should be a function', () => {
@@ -19,4 +19,10 @@ describe('Challenge', function() {
   it('should be a new instance of User', () => {
     expect(challenge).to.be.an.instanceof(Challenge);
   })
+
+  it('should be instantiated with an array', () => {
+    expect(challenge.challengers).to.be.an('array')
+  })
+
+  
 })
