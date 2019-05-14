@@ -119,7 +119,7 @@ main {
   width: 100%;
   height:35px;
   border: 1px solid #E0E0E0;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   background-color: #CDCDC1;
 }
 
@@ -128,8 +128,12 @@ main {
   justify-content:center;
   align-items: center;
   height:100%;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   background-color: #2B7A7A;
+}
+.average--active--box:hover ,
+.current--active--box:hover {
+  transform: scale(1.02);
 }
 
 .weekly--active {
@@ -139,4 +143,13 @@ main {
 
 .weekly--active tr:nth-child(even) {
   background-color: grey;
+}
+
+.average--active--box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.average--active--box canvas {
+  flex: 1;
 }

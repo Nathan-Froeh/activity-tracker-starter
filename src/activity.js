@@ -9,6 +9,10 @@ class Activity {
     * this.user.userData.strideLength * 0.00018939
     return milesWalked.toFixed(2)
   }
+  getStairsClimbByDate(date) {
+    //should return a users active time on specific date
+    return this.activityData.find(x => x.date === date).flightsOfStairs 
+  }
 
   getActiveTimeByDate(date) {
     //should return a users active time on specific date

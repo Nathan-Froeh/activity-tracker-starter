@@ -4,6 +4,8 @@ let user;
 let hydration;
 let sleep;
 let activity;
+let activityRepository = new ActivityRepository(activityData)
+
 
 function makeRandomUser() {
   let randomNumber = Math.floor(Math.random() * userData.length)
@@ -112,10 +114,19 @@ function getActivityData(id) {
   loadDailyActivity(activity)
   loadWeeklyActivity(activity)
   
-  $( ".current--active--box" ).click(function() {
-    $(".active__day__tab").toggle()
-    $(".active__week__tab").toggle()
+  $( '.current--active--box' ).click(function() {
+    $('.active__day__tab').toggle()
+    $('.active__week__tab').toggle()
   });
+  
+$('#activity-repo-flightsOfStairs').hide()
+
+$( '.average--active--box' ).click(function() {
+  $('#activity-repo-numsteps').toggle()
+  $('#activity-repo-active-time').toggle()
+  $('#activity-repo-flightsOfStairs').toggle()
+});
+
 
 function loadSleep(sleep) {
   let today = sleep.sleepData[sleep.sleepData.length - 1].date
