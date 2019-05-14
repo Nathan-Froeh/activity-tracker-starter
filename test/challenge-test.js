@@ -43,11 +43,11 @@ describe('Challenge', function() {
 
   it('should return array with the total steps for users in challenge', () => {
     challenge.challengers = [2, 3, 4]
-    expect(challenge.getChallengeResults(user)).to.deep.equal([])
+    challenge.getChallengeResults(user)
+    expect(challenge.challengerNames).to.deep.equal(
+      ['Nyasia', 'Shayne', 'Cleo', 'Elaina'])
+    expect(challenge.challengerStats).to.eql([56391, 54570, 65386, 66258])
   })
 
 
 })
-
-// 51,862
-//

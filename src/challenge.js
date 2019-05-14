@@ -3,13 +3,17 @@ if (typeof module !== undefined) {
   var expect = chai.expect;
   var testUser = require('../src/testUser');
   var User = require('../src/User');
+  var Activity = require('../src/Activity')
   var fullUserList = require('../data/users');
   var fullActiveList = require('../data/activity');
+
 }
 
 class Challenge {
   constructor() {
     this.challengers = [];
+    this.challengerNames = [];
+    this.challengerStats = [];
   }
   generateChallengers(users) {
     let userList = [...users]
@@ -41,20 +45,46 @@ class Challenge {
   }
 
   getChallengeResults(user) {
-    this.genChallengers(user)
+    let contestants = [user.userData.id, ...this.challengers]
+    this.genChallenger(contestants)
+    this.genActiveData(contestants)
   }
 
 
-  genChallengers(user) {
-    let contestants = [user.userData.id, ...this.challengers]
+  genChallenger(contestants) {
     let userInfo = []
+    contestants.forEach(x => {
+      fullUserList.filter(R => R.id === x ? userInfo.push(R) : null)
+    })
+    // console.log(userInfo)
+    this.getChallengerNames(userInfo)
+  }
+  getChallengerNames(userInfo) {
+    userInfo.forEach(x => {
+      let user = new User(x).getFirstName()
+      this.challengerNames.push(user)
+    })
+    console.log(this.challengerNames)
+  }
+
+  genActiveData(contestants) {
     let activityInfo = []
     contestants.forEach(x => {
-      fullUserList.filter(r => r.id === x ? userInfo.push(r) : null)
-      fullActiveList.filter(l => l.userID === x ? activityInfo.push(l) : null)
+      fullActiveList.filter(R => R.userID === x ? activityInfo.push(R) : null)
     })
-    console.log(userInfo)
-    console.log(activityInfo)
+    // console.log(activityInfo)
+    this.getChallengerStats(activityInfo)
+  }
+
+  getChallengerStats(activityInfo) {
+    activityInfo.forEach(x => {
+      let user = new User(x)
+      let activity = new Activity(x.activityData, user)
+      let week = activity.getWeeklyActive('13/08/2019')
+      let total = week.reduce((acc, cur) => (acc = acc + cur.numSteps), 0)
+      this.challengerStats.push(total)
+      console.log(total)
+    })
   }
 
   //I need each user object, users activity data, date
