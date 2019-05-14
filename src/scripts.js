@@ -61,7 +61,7 @@ function getActivityData(id) {
     let allTimeHydration = hydration.calcAllTimeHydration() 
     let dateHydration = hydration.calcDateHydration(today)
     let weeklyHydration = hydration.calcWeeklyHydration(today)
-    $('.water--box').append(`<p>You drank ${dateHydration} ounces</p>`);
+    $('.water--box').append(`<p>Today you drank ${dateHydration} ounces</p>`);
     $('.water--box').append(`<p>On average you drink ${allTimeHydration} ounces</p>`);
     $('.water--box').append(`<p>This week you drank ${weeklyHydration} ounces</p>`);
   }
@@ -84,9 +84,12 @@ function getActivityData(id) {
       'You have reached your step goal!': 'Keep on walking! You have not reached your goal!'
     $('.active__day__goal__info').append(`<p>${stepGoal}</p>`);
     $('.active__day__goal__info').append(`<p>You walked <b>${steps} </b>steps today.</p>`);
-    let dailyPercent = activity.getStepGoalPercentage(today)
-    $('#progress__bar__active__goal').css( "width", dailyPercent ) 
-    $('#active__goal__percentage').text(dailyPercent)
+
+    let dailyPercent = activity.getStepGoalPercentage(today) > 100 ? 100 : activity.getStepGoalPercentage(today)
+    // $('#progress__bar__active__goal').css( "width", dailyPercent ) 
+    // $('#active__goal__percentage').text(dailyPercent)
+    $('#progress__bar__activity').val(dailyPercent)
+    $('#step__percentage').append(`${activity.getStepGoalPercentage(today)}%`)
   }
   function loadWeeklyActivity(activity) {
     let today = activity.activityData[activity.activityData.length - 1].date
