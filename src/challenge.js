@@ -4,6 +4,7 @@ if (typeof module !== undefined) {
   var testUser = require('../src/testUser');
   var User = require('../src/User');
   var fullUserList = require('../data/users');
+  var fullActiveList = require('../data/activity');
 }
 
 class Challenge {
@@ -46,18 +47,17 @@ class Challenge {
 
   genChallengers(user) {
     let contestants = [user.userData.id, ...this.challengers]
-    let contestantObjects = []
+    let userInfo = []
+    let activityInfo = []
     contestants.forEach(x => {
-      fullUserList.filter(r => {
-        if (r.id === x) {
-          console.log(r)
-          let challenger = new User(r)
-          contestantObjects.push(challenger)
-        }
-      })
+      fullUserList.filter(r => r.id === x ? userInfo.push(r) : null)
+      fullActiveList.filter(l => l.userID === x ? activityInfo.push(l) : null)
     })
-    console.log(contestantObjects)
+    console.log(userInfo)
+    console.log(activityInfo)
   }
+
+  //I need each user object, users activity data, date
 
   //instantiate user
   //instantiate Activity with today and current user
