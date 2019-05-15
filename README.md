@@ -16,7 +16,7 @@ We sucessfully completed all 5 iterations and decided to try to integrate charts
 
 ![Desktop view static comp](https://github.com/Nathan-Froeh/activity-tracker-starter/blob/master/images/Screen%20Shot%202019-05-15%20at%205.13.58%20PM.png)
 
-![Desktop view static comp](https://github.com/Nathan-Froeh/activity-tracker-starter/blob/master/images/Screen%20Shot%202019-05-15%20at%205.13.58%20PM.png)
+![Desktop view static comp](https://github.com/Nathan-Froeh/activity-tracker-starter/blob/master/images/Screen%20Shot%202019-05-15%20at%205.13.28%20PM.png)
 
 
 ### Credits
