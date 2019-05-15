@@ -102,12 +102,10 @@ function loadWeeklyActivity(activity) {
   let today = activity.activityData[activity.activityData.length - 1].date
   let weeklyAverage = activity.getWeeklyAvgActive(today)
   let weeklyData = createWeeklyData(today)
-  $('.active__week__tab').hide()
-  $('.active__week__tab').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
-  $('.active__week__tab').append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
+  $('.current-active-week').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
+  $('.active__week__tab').append(`<table class = 'weekly--active'><tr><th><b>Day</b><th>Step</th>
     <th>Minutes</th><th>Stairs</th>${weeklyData}</table>`);
-    // $('#activity-repo-flightsOfStairs').hide()
-  }
+}
   function createWeeklyData(day) {
     let weeksActivityData = activity.getWeeklyActive(day)
     let sortedData = weeksActivityData.map((day, index) => {
@@ -163,8 +161,37 @@ function loadChallenge() {
   // let names = challenge.challengerNames
   // let stats = challenge.challengerStats
 }
-// $('.user--card').append(startEndDate)
-// console.log(startEndDate)
+
+function buildStepTrend() {
+  $('.step--trend--box').append('<h2>DAYS WITH INCREASING STEP COUNTS</h2>')
+  const stepTrend = activity.getStepTrend();
+  let sortedData = stepTrend.map((trend) => {
+    return `
+      <tr>
+        <td>${trend[0].date}</td>
+        <td>${trend[trend.length-1].date}</td>
+      </tr> `
+  })
+  $('.step--trend--box').append(`<table  class = 'weekly--active'><th>Start Date</th>
+    <th>End Date</th>${sortedData.join('')}</table>`)
+    $('.step--trend--box').append(`<img class ='trophy__image'  
+    src='../images/award.svg' alt='cartoon_award_icon'>`)
+}
+
+function noStepTrendGiven() {
+  $('.step--trend--box').append('<h2>Increase your step count to win a trophy</h2>')
+  $('.step--trend--box').append(`<img class ='trophy__image'  
+  src='../images/award.svg' alt='cartoon_award_icon'>`)
+}
+
+
+loadStepTrend()
+function loadStepTrend() {
+  const stepTrend = activity.getStepTrend();
+  stepTrend.length > 0 ? buildStepTrend() : noStepTrendGiven()
+}
+
+
 loadChallenge()
 
   
