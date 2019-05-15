@@ -1,90 +1,13 @@
-# Activity Tracker Starter
+# Fit Lit
 
-The details of this project are outline in [this project spec](http://frontend.turing.io/projects/activity-tracker.html).
+A project based on the FitBit app has a data supply for 50 users and include 100 days worth of information about their hydration, sleep, and fitness paterns. The goal was to get comfortable with data manipulation, Object Oriented Programming, and Test Driven Development as well as come up with our own site design and layout. On page load a new user is loaded with their stats for the current day and the past week in the hydration, sleep, and activity widgets and there is a step challenge between the current user and 4 of his or her friends.
+The details of this project are outlined in [this project spec](http://frontend.turing.io/projects/activity-tracker.html).
 
 ## Setup
 
-1. Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should fork this repo - on the top right corner of this page, click the **Fork** button.
-1. Both memeber of the group should clone down the _forked_ repo. Since you don't want to name your project "activity-tracker-starter", you can use an optional argument when you run git clone (you replace the [...] with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Once you have cloned the repo, change into the directory and install the library dependencies. Run `npm install` to install project dependencies.
-1. Run `open src/index.html` in the terminal to see the HTML page (you should see some boilerplate HTML displayed on the page)
-1. Make sure both members of your team are collaborators on the forked repo.
+1) cd to the folder you would like FitLit to live in
+2) git clone 
 
-## Testing
 
-There is no boilerplate for testing in this starter-kit repo. You will need to set this up yourself. However, if you have run `npm install`, then the tooling you need to start testing is already installed (`mocha` and `chai`).
 
-## Data Model
 
-**Users**
-
-```
-[
-  {
-    "id": [number],
-    "name": [string],
-    "address": [string],
-    "email": [string],
-    "strideLength": [number - feet],
-    "dailyStepGoal": [number - steps]
-  },
-  ...more users
-]
-```
-
-**Activity**
-
-```
-[
-  {
-    "userID": [number],
-    "activityData": [
-      {
-        "date": [string DD/MM/YYY],
-        "numSteps": [number - steps],
-        "minutesActive": [number - minutes],
-        "flightsOfStairs": [number - flights]
-      },
-      ...more dates
-    ]
-  },
-  ...more user data
-]
-```
-
-**Hydration**
-
-```
-[
-  {
-    "userID": [number],
-    "hydrationData": [
-      {
-        "date": [string DD/MM/YYY],
-        "numOunces": [number - ounces]
-      },
-      ...more dates
-    ]
-  },
-  ...more user data
-]
-```
-
-**Sleep**
-
-```
-[
-  {
-    "userID": [number],
-    "sleepData": [
-      {
-        "date": [string DD/MM/YYY],
-        "hoursSlept": [number - hours],
-        "sleepQuality": [number - unitless]
-      },
-      ...more dates
-    ]
-  },
-  ...more user data
-]
-```
