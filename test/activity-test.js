@@ -17,9 +17,11 @@ const testPerson = {
 describe('Activity', function() {
   let user;
   let activity;
+  let activityUser2
   beforeEach(() => {
     user = new User(testUser.testUserData[0]);
     activity = new Activity(testUser.testActivityData[0].activityData, user)
+    activityUser2 = new Activity(testUser.testActivityData[1].activityData, user)
   })
 
   it('should be a function', () => {
@@ -60,11 +62,16 @@ describe('Activity', function() {
   })
 
   it('should get step goal percentage', () => {
-    expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92%')
+    expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92')
   })
 
   it('should get all of the weeks activity', () => {
-    expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92%')
+    expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92')
+  })
+  it('should return an array of 3 days of step count', () => {
+    expect(activityUser2.getStepTrend()).to.eql([[{"date": "11/05/2019", "numSteps": 2629}, 
+    {"date": "12/05/2019", "numSteps": 9521}, {"date": "13/05/2019", "numSteps": 10671}, 
+    {"date": "14/05/2019", "numSteps": 10847}]])
   })
 
 

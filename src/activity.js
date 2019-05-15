@@ -59,7 +59,24 @@ class Activity {
     return this.activityData.sort((a, b) => b.flightsOfStairs - a.flightsOfStairs)[0].date
   }
 
+  getStepTrend() {
+    let allTrends = []
+    let currentTrend = []
+    this.activityData.forEach((day) => {
+      if (currentTrend.length === 0 || currentTrend[currentTrend.length - 1].numSteps < day.numSteps) {
+        currentTrend.push({"date": day.date, "numSteps": day.numSteps})
+      }  else if (currentTrend.length > 3) {
+        allTrends.push(currentTrend)
+        currentTrend = []
+      } else {
+        currentTrend = []
+      }
+    })
+    return allTrends
+  }
 }
+
+
 if (typeof module !== 'undefined') {
   module.exports = Activity;
 }

@@ -106,12 +106,12 @@ function loadWeeklyActivity(activity) {
   $('.active__week__tab').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
   $('.active__week__tab').append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
     <th>Minutes</th><th>Stairs</th>${weeklyData}</table>`);
-  $('#activity-repo-flightsOfStairs').hide()
-}
-function createWeeklyData(day) {
-  let weeksActivityData = activity.getWeeklyActive(day)
-  let sortedData = weeksActivityData.map((day, index) => {
-    return `
+    // $('#activity-repo-flightsOfStairs').hide()
+  }
+  function createWeeklyData(day) {
+    let weeksActivityData = activity.getWeeklyActive(day)
+    let sortedData = weeksActivityData.map((day, index) => {
+      return `
         <tr>
           <td>${index + 1}</td>
           <td>${day.numSteps} </td>
@@ -130,11 +130,11 @@ $( '.current--active--box' ).click(function() {
   $('.active__week__tab').toggle()
 });
 
-$( '.average--active--box' ).click(function() {
-  $('#activity-repo-numsteps').toggle()
-  $('#activity-repo-active-time').toggle()
-  $('#activity-repo-flightsOfStairs').toggle()
-});
+// $( '.average--active--box' ).click(function() {
+//   $('#activity-repo-numsteps').toggle()
+//   $('#activity-repo-active-time').toggle()
+//   $('#activity-repo-flightsOfStairs').toggle()
+// });
 
 
 function loadSleep(sleep) {
@@ -158,12 +158,13 @@ loadSleep(sleep)
 
 function loadChallenge() {
   challenge.generateChallengers(user, userRepository.users)
-  console.log('one')
   let stuff = challenge.getChallengeResults(user, userRepository.users)
-  console.log(stuff)
+  // console.log(stuff)
   // let names = challenge.challengerNames
   // let stats = challenge.challengerStats
 }
+// $('.user--card').append(startEndDate)
+// console.log(startEndDate)
 loadChallenge()
 
   
