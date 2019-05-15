@@ -1,4 +1,4 @@
-// console.log(typeof module !== 'undefined')
+console.log(typeof module !== 'undefined')
 // if (typeof module !== 'undefined') {
 //   var User = require('../src/User');
 //   var Activity = require('../src/Activity')
@@ -65,7 +65,7 @@ class Challenge {
       let user = new User(x).getFirstName()
       this.challengerNames.push(user)
     })
-    // console.log(this.challengerNames)
+    console.log(this.challengerNames)
   }
 
   genActiveData(contestants) {
