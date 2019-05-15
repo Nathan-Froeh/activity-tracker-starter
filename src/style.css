@@ -14,12 +14,12 @@ body {
 button:focus {outline:0;}
 
 aside {
-  flex: 1;
   background-color: #17252A;
   color: #FEFFFF;
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding: 20px;
 }
 
 ul {
@@ -27,56 +27,53 @@ ul {
 }
 
 main {
-  flex: 5;
   background-color: #3AAFA9;
-  /* min-height: 100vh;
-  max-height: 100vh; */
+  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  flex: 5;
   grid-auto-rows: 1fr;
   grid-gap: 20px;
-  box-sizing: border-box;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 20px
 }
 
 .box {
   background-color: #FEFFFF;
-  /* border: 3px solid #2B7A7A; */
   border-radius: 5px;
   padding: 7px;
 }
 
 .fire__image {
-  width: 30%;
   display: block;
   margin: 15px auto;
+  width: 30%;
 }
 .welcome,
 .fit__lit {
-  text-align: center;
   margin: 15px;
+  text-align: center;
 }
 
 .date__input {
-  width: 100%;
-  height: 25px;
   border: none;
+  height: 25px;
   margin: 15px 0;
+  width: 100%;
 }
 
 .hide__user__card {
-  width: 100%;
-  height: 25px;
   background-color: #2B7A7A;
-  color: #FEFFFF;
-  margin: 3px 0 3px 0;
   border: none;
+  color: #FEFFFF;
+  height: 25px;
+  margin: 3px 0 3px 0;
+  width: 100%;
 }
 
 .user--card {
+  align-self: flex-start;
   display: none;
   justify-self: flex-start;
-  align-self: flex-start;
 }
 
 .box {
@@ -84,22 +81,22 @@ main {
 }
 
 .stopwatch {
-  width: 50%;
   margin: auto;
+  width: 50%;
 }
 
 
 .active__day__timemiles {
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
   justify-content: space-around;
 }
 
 .active__day__time__info,
 .active__day__miles__info {
-  padding: 10px;
   flex: 1;
+  padding: 10px;
 }
 
 .footsteps {
@@ -107,8 +104,8 @@ main {
 }
 
 .weekly--active {
-  width: 100%;
   padding: 5%;
+  width: 100%;
 }
 
 .weekly--active tr:nth-child(even) {
@@ -125,11 +122,11 @@ main {
 }
 
 #progress__bar__activity {
+  border: none;
   -webkit-appearance: none;
-	border: none;
-  width: 80%;
-  height: 30px;
   color: #2B7A7A;
+  height: 30px;
+  width: 80%;
 }
 
 #progress__bar__activity::-webkit-progress-value {
@@ -144,3 +141,24 @@ progress {
   width: 70px;
 }
 
+
+@media only screen and (max-width: 1200px){
+  
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+  aside {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px){
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 1000px){
+  body {
+    display: block;
+  }
+}
