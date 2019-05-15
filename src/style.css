@@ -4,8 +4,6 @@
   margin: 0;
 }
 
-
-
 body {
   display: flex;
   font-family: 'Open Sans', sans-serif;
@@ -85,7 +83,6 @@ main {
   width: 50%;
 }
 
-
 .active__day__timemiles {
   align-items: flex-end;
   display: flex;
@@ -141,7 +138,6 @@ progress {
   width: 70px;
 }
 
-
 @media only screen and (max-width: 1200px){
   
   main {
@@ -157,6 +153,7 @@ progress {
     grid-template-columns: 1fr;
   }
 }
+
 @media only screen and (max-width: 1000px){
   body {
     display: block;

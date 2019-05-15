@@ -4,19 +4,16 @@ class UserRepository {
   }
 
   getUser(id) {
-    // Given a user’s ID, what is their user data?
     return this.users.filter(x => x.id === id)[0]
   }
 
   calcAvgStepGoal() {
-    // Average step goal amongst all users
     return this.users.reduce((acc, cur) => {
       return acc = acc + cur.dailyStepGoal / this.users.length
     }, 0)
   }
 
   calcAvgLocation() {
-    // What state are the most users from?
     let locations = this.users.map(user => {
       return user.address.split(' ')[user.address.split(' ').length -2]
     })

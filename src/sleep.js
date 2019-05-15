@@ -4,7 +4,6 @@ class Sleep {
   }
 
   calcSleepTime() {
-    // the average number of hours slept per day
     let timeSlept = this.sleepData.reduce((acc, cur) => {
       return acc = acc + cur.hoursSlept
     }, 0)
@@ -12,7 +11,6 @@ class Sleep {
   }
 
   calcSleepQuality() {
-    // their average sleep quality per day over all time
     let totalQuality = this.sleepData.reduce((acc, cur) => {
       return acc = acc + cur.sleepQuality
     }, 0)
@@ -20,24 +18,20 @@ class Sleep {
   }
 
   getSleepTimeByDate(date) {
-    // how many hours they slept for a specific day 
     return this.sleepData.find(x => x.date === date).hoursSlept;
   }
 
   getSleepQualityByDate(date) {
-    // their sleep quality for a specific day
     return this.sleepData.find(x => x.date === date).sleepQuality;
   }
 
   getSleepTimeByWeek(date) {
-    // [how many hours slept each day over the course of a given week] 
     let index = this.sleepData.findIndex(x => x.date === date)
     let stuff = this.sleepData.slice(index - 6, index + 1)
     return stuff.map(x => x.hoursSlept)
   }
 
   getSleepQulityByWeek(date) {
-    // [their sleep quality each day over the course of a given week] 
     let index = this.sleepData.findIndex(x => x.date === date)
     let stuff = this.sleepData.slice(index - 6, index + 1)
     return stuff.map(x => x.sleepQuality)

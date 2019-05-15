@@ -3,7 +3,6 @@ class User {
     this.userData = userData;
   }
   getFirstName() {
-    // Return a user’s first name only
     return this.userData.name.split(' ')[0];
   }
 
