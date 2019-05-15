@@ -5,6 +5,7 @@ let hydration;
 let sleep;
 let activity;
 let activityRepository = new ActivityRepository(activityData)
+let challenge;
 
 
 function makeRandomUser() {
@@ -13,6 +14,7 @@ function makeRandomUser() {
   getHydrationData(randomNumber)
   getSleepData(randomNumber)
   getActivityData(randomNumber)
+  getChallengeData()
 }
 
 makeRandomUser() 
@@ -42,62 +44,67 @@ function getActivityData(id) {
   activity = new Activity(data.activityData, user)
 }
 
-  function getHydrationData(id) {
-    const data = hydrationData.find(x => x.userID === id + 1)
-    hydration = new Hydration(data.hydrationData)
-  }
+function getChallengeData() {
+  challenge = new Challenge(activityData)
+}
 
-  function getActivityData(id) {
-    const data = activityData.find(x => x.userID === id + 1)
-    activity = new Activity(data.activityData, user)
-  }
+// function getHydrationData(id) {
+//   const data = hydrationData.find(x => x.userID === id + 1)
+//   hydration = new Hydration(data.hydrationData)
+// }
 
-  $(".hide__user__card").click(function() {
-    $('.user--card').slideToggle('slow')
-  })
+// function getActivityData(id) {
+//   const data = activityData.find(x => x.userID === id + 1)
+//   activity = new Activity(data.activityData, user)
+// }
+
+
+$(".hide__user__card").click(function() {
+  $('.user--card').slideToggle('slow')
+})
   
-  function loadHydration(hydration) {
-    let today = hydration.hydrationData[hydration.hydrationData.length - 1].date
-    let allTimeHydration = hydration.calcAllTimeHydration() 
-    let dateHydration = hydration.calcDateHydration(today)
-    let weeklyHydration = hydration.calcWeeklyHydration(today)
-    $('.water--box').append(`<p>Today you drank ${dateHydration} ounces</p>`);
-    $('.water--box').append(`<p>On average you drink ${allTimeHydration} ounces</p>`);
-    $('.water--box').append(`<p>This week you drank ${weeklyHydration} ounces</p>`);
-  }
-  loadHydration(hydration)
+function loadHydration(hydration) {
+  let today = hydration.hydrationData[hydration.hydrationData.length - 1].date
+  let allTimeHydration = hydration.calcAllTimeHydration() 
+  let dateHydration = hydration.calcDateHydration(today)
+  let weeklyHydration = hydration.calcWeeklyHydration(today)
+  $('.water--box').append(`<p>Today you drank ${dateHydration} ounces</p>`);
+  $('.water--box').append(`<p>On average you drink ${allTimeHydration} ounces</p>`);
+  // $('.water--box').append(`<p>This week you drank ${weeklyHydration} ounces</p>`);
+}
+loadHydration(hydration)
 
-  function loadDailyActivity(activity) {
-    let today = activity.activityData[activity.activityData.length - 1].date
-    let activeTime = activity.getActiveTimeByDate(today)
-    let milesWalked = activity.getMilesWalked(today);
-    loadDailyStepGoal(today)
-    $('.active__day__time__info').append(`<img src = '../images/stopwatch.svg' class = 'stopwatch'>
+function loadDailyActivity(activity) {
+  let today = activity.activityData[activity.activityData.length - 1].date
+  let activeTime = activity.getActiveTimeByDate(today)
+  let milesWalked = activity.getMilesWalked(today);
+  loadDailyStepGoal(today)
+  $('.active__day__time__info').append(`<img src = '../images/stopwatch.svg' class = 'stopwatch'>
       <p>Active Time: ${activeTime} minutes</p>`);
-    $('.active__day__miles__info').append(`<img src = '../images/footsteps.svg' class = 'footsteps'>
+  $('.active__day__miles__info').append(`<img src = '../images/footsteps.svg' class = 'footsteps'>
     <p>Miles Walked: ${milesWalked}</p>`);
-  }
+}
   
-  function loadDailyStepGoal(today) {
-    let steps = activity.getSteps(today)
-    let stepGoal = activity.getStepGoal(today) === true ? 
-      'You have reached your step goal!': 'Keep on walking! You have not reached your goal!'
-    $('.active__day__goal__info').append(`<p>${stepGoal}</p>`);
-    $('.active__day__goal__info').append(`<p>You walked <b>${steps} </b>steps today.</p>`);
+function loadDailyStepGoal(today) {
+  let steps = activity.getSteps(today)
+  let stepGoal = activity.getStepGoal(today) === true ? 
+    'You have reached your step goal!': 'Keep on walking! You have not reached your goal!'
+  $('.active__day__goal__info').append(`<p>${stepGoal}</p>`);
+  $('.active__day__goal__info').append(`<p>You walked <b>${steps} </b>steps today.</p>`);
 
-    let dailyPercent = activity.getStepGoalPercentage(today) > 100 ? 100 : activity.getStepGoalPercentage(today)
-    // $('#progress__bar__active__goal').css( "width", dailyPercent ) 
-    // $('#active__goal__percentage').text(dailyPercent)
-    $('#progress__bar__activity').val(dailyPercent)
-    $('#step__percentage').append(`${activity.getStepGoalPercentage(today)}%`)
-  }
-  function loadWeeklyActivity(activity) {
-    let today = activity.activityData[activity.activityData.length - 1].date
-    let weeklyAverage = activity.getWeeklyAvgActive(today)
-    let weeklyData = createWeeklyData(today)
-    $('.active__week__tab').hide()
-    $('.active__week__tab').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
-    $('.active__week__tab').append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
+  let dailyPercent = activity.getStepGoalPercentage(today) > 100 ? 100 : activity.getStepGoalPercentage(today)
+  // $('#progress__bar__active__goal').css( "width", dailyPercent ) 
+  // $('#active__goal__percentage').text(dailyPercent)
+  $('#progress__bar__activity').val(dailyPercent)
+  $('#step__percentage').append(`${activity.getStepGoalPercentage(today)}%`)
+}
+function loadWeeklyActivity(activity) {
+  let today = activity.activityData[activity.activityData.length - 1].date
+  let weeklyAverage = activity.getWeeklyAvgActive(today)
+  let weeklyData = createWeeklyData(today)
+  $('.active__week__tab').hide()
+  $('.active__week__tab').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
+  $('.active__week__tab').append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
     <th>Minutes</th><th>Stairs</th>${weeklyData}</table>`);
     // $('#activity-repo-flightsOfStairs').hide()
   }
@@ -111,17 +118,17 @@ function getActivityData(id) {
           <td>${day.minutesActive}</td> 
           <td>${day.flightsOfStairs}</td>
         </tr>`
-    })
-    return sortedData.join(' ')
-  }
+  })
+  return sortedData.join(' ')
+}
 
-  loadDailyActivity(activity)
-  loadWeeklyActivity(activity)
+loadDailyActivity(activity)
+loadWeeklyActivity(activity)
   
-  $( '.current--active--box' ).click(function() {
-    $('.active__day__tab').toggle()
-    $('.active__week__tab').toggle()
-  });
+$( '.current--active--box' ).click(function() {
+  $('.active__day__tab').toggle()
+  $('.active__week__tab').toggle()
+});
 
 // $( '.average--active--box' ).click(function() {
 //   $('#activity-repo-numsteps').toggle()
@@ -149,16 +156,16 @@ function loadSleep(sleep) {
 }
 loadSleep(sleep)
 
-function loadStepTrend () {
-  let stepTrend = activity.getStepTrend();
-  let startEndDate = stepTrend.map((trend) => {
-  return `<li>${trend[0].date} - ${trend[trend.length-1].date}</li>`
-  })
-  $('.user--card').append(startEndDate)
-  console.log(startEndDate)
-  
+function loadChallenge() {
+  challenge.generateChallengers(user, userRepository.users)
+  let stuff = challenge.getChallengeResults(user, userRepository.users)
+  // console.log(stuff)
+  // let names = challenge.challengerNames
+  // let stats = challenge.challengerStats
 }
-loadStepTrend()
+// $('.user--card').append(startEndDate)
+// console.log(startEndDate)
+loadChallenge()
 
   
 

@@ -1,24 +1,23 @@
-if (typeof module !== undefined) {
-  var chai = require('chai');
-  var expect = chai.expect;
-  var testUser = require('../src/testUser');
-  var User = require('../src/User');
-  var Activity = require('../src/Activity')
-  var fullUserList = require('../data/users');
-  var fullActiveList = require('../data/activity');
-
-}
+console.log(typeof module !== 'undefined')
+// if (typeof module !== 'undefined') {
+//   var User = require('../src/User');
+//   var Activity = require('../src/Activity')
+//   var fullUserList = require('../data/users');
+//   var fullActiveList = require('../data/activity');
+//   var userRepository = require('../src/userRepository')
+// }
 
 class Challenge {
-  constructor() {
+  constructor(activityData) {
+    this.activityData = activityData
     this.challengers = [];
     this.challengerNames = [];
     this.challengerStats = [];
   }
-  generateChallengers(users) {
+  generateChallengers(user, users) {
+    // console.log(users)
     let userList = [...users]
     let shuffled = this.shuffleUserId(userList)
-    // console.log(user.userData.id)
     this.challengers = shuffled.reduce((acc, cur) => {
       if (cur !== user.userData.id && acc.length < 4) {
         acc.push(cur)
@@ -44,17 +43,19 @@ class Challenge {
     return shuffle(userList.map(x => x.id))
   }
 
-  getChallengeResults(user) {
+  getChallengeResults(user, users) {
     let contestants = [user.userData.id, ...this.challengers]
-    this.genChallenger(contestants)
-    this.genActiveData(contestants)
+    this.genChallenger(contestants, users)
+    this.genActiveData(contestants, users)
+    console.log(this.activityData)
   }
 
 
-  genChallenger(contestants) {
+  genChallenger(contestants, users) {
     let userInfo = []
+    console.log(users)
     contestants.forEach(x => {
-      fullUserList.filter(R => R.id === x ? userInfo.push(R) : null)
+      users.filter(R => R.id === x ? userInfo.push(R) : null)
     })
     // console.log(userInfo)
     this.getChallengerNames(userInfo)
@@ -70,7 +71,7 @@ class Challenge {
   genActiveData(contestants) {
     let activityInfo = []
     contestants.forEach(x => {
-      fullActiveList.filter(R => R.userID === x ? activityInfo.push(R) : null)
+      this.activityData.filter(R => R.userID === x ? activityInfo.push(R) : null)
     })
     // console.log(activityInfo)
     this.getChallengerStats(activityInfo)
@@ -101,6 +102,6 @@ class Challenge {
 // show step count for the last 7 days
 // show winner of step challenge
 
-
-module.exports = Challenge
-
+if (typeof module !== "undefined") {
+  module.exports = Challenge
+}

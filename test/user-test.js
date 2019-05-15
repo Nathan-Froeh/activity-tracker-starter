@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 
-if(typeof module !== undefined) {
+if (typeof module !== 'undefined') {
   var User = require('../src/User');
   var testUser = require('../src/testUser');
 }
