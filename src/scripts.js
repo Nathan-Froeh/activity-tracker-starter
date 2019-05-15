@@ -99,7 +99,7 @@ function getActivityData(id) {
     $('.active__week__tab').append(`<p>Weekly Average Active Time:${weeklyAverage}</p>`);
     $('.active__week__tab').append(`<table class = "weekly--active"><tr><th><b>Day</b><th>Step</th>
     <th>Minutes</th><th>Stairs</th>${weeklyData}</table>`);
-    $('#activity-repo-flightsOfStairs').hide()
+    // $('#activity-repo-flightsOfStairs').hide()
   }
   function createWeeklyData(day) {
     let weeksActivityData = activity.getWeeklyActive(day)
@@ -123,11 +123,11 @@ function getActivityData(id) {
     $('.active__week__tab').toggle()
   });
 
-$( '.average--active--box' ).click(function() {
-  $('#activity-repo-numsteps').toggle()
-  $('#activity-repo-active-time').toggle()
-  $('#activity-repo-flightsOfStairs').toggle()
-});
+// $( '.average--active--box' ).click(function() {
+//   $('#activity-repo-numsteps').toggle()
+//   $('#activity-repo-active-time').toggle()
+//   $('#activity-repo-flightsOfStairs').toggle()
+// });
 
 
 function loadSleep(sleep) {

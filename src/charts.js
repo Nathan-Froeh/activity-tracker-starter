@@ -82,8 +82,8 @@ var activityRepo = new Chart(activityRepoNumSteps, {
     }]
   }, 
   options: {
-    responsive: false,
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       yAxes: [{
         ticks: {
@@ -101,7 +101,7 @@ var activityRepoActiveTime = new Chart($('#activity-repo-active-time'), {
   data: {
     labels: [`${user.getFirstName()}`, 'FitLit Average'],
     datasets: [{
-      label: 'Active Time',
+      label: 'Active Time' ,
       data: [`${activity.getActiveTimeByDate(date)}`, `${activityRepository.calcAvgActive(date)}`],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
@@ -119,8 +119,8 @@ var activityRepoActiveTime = new Chart($('#activity-repo-active-time'), {
     }]
   }, 
   options: {
-    responsive: false,
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       yAxes: [{
         ticks: {
@@ -130,8 +130,10 @@ var activityRepoActiveTime = new Chart($('#activity-repo-active-time'), {
     }
   }
 });
+activityRepo.AspectRatio = 0
 
-var activityRepoActiveTime = new Chart($('#activity-repo-flightsOfStairs'), {
+
+var activityRepoStairs = new Chart($('#activity-repo-flightsOfStairs'), {
   type: 'bar',
   data: {
     labels: [`${user.getFirstName()}`, 'FitLit Average'],
@@ -155,7 +157,7 @@ var activityRepoActiveTime = new Chart($('#activity-repo-flightsOfStairs'), {
   }, 
   options: {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
       yAxes: [{
         ticks: {
@@ -165,6 +167,7 @@ var activityRepoActiveTime = new Chart($('#activity-repo-flightsOfStairs'), {
     }
   }
 });
+
 
 
 console.log(hydration.calcWeeklyHydration(date))
