@@ -220,3 +220,42 @@ var hydrationChart = new Chart($('#hydration-chart'), {
     }
   }
 });
+
+var challengeChart = new Chart($('#challenge-chart'), {
+  type: 'radar',
+  data: {
+    labels: [challenge.challengerNames[0], challenge.challengerNames[1],
+      challenge.challengerNames[2] ,challenge.challengerNames[3],
+      challenge.challengerNames[4]],
+    datasets: [{
+      label: 'Step Challenge',
+      data: [challenge.challengerStats[0], challenge.challengerStats[1],
+        challenge.challengerStats[2] ,challenge.challengerStats[3],
+        challenge.challengerStats[4]],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 129, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)',
+        'rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)',
+        'rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)',
+        'rgba(255, 99, 132, 1)'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
