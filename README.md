@@ -20,6 +20,6 @@ We sucessfully completed all 5 iterations and decided to try to integrate charts
 
 
 ### Credits
-Nathan Froehlich 
-Evan Markowitz
+Nathan Froehlich [GitHub]()
+Evan Markowitz [GitHub](https://github.com/evanmarkowitz)
 
