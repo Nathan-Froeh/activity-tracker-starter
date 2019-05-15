@@ -252,10 +252,10 @@ var challengeChart = new Chart($('#challenge-chart'), {
   },
   options: {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
-      yAxes: [{
-        ticks: {
+      yAxes: [{ 
+        ticks: { display: false,
           beginAtZero: true
         }
       }]

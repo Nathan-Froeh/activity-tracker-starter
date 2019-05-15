@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset = "UTF-8">
     <title>Fit Lit</title>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
@@ -22,9 +23,6 @@
         <li class = 'step__goal'>Step Goal: <span class = 'user__step__goal'></span></li>
         <li>3 Day step increases:</li>
       </ul>
-      <div class = 'challenge--box'>
-          <canvas id = 'challenge-chart'></canvas>
-      </div>
     </aside>
     <main>
       <section class = 'box water--box'>
@@ -33,7 +31,7 @@
       <section class = 'box sleep--box'>
         <canvas id = "sleep-chart"></canvas>
       </section>
-    <section class = 'box current--active--box'>
+      <section class = 'box current--active--box'>
       <ul class= 'current--active--tabs'>
         <li class = 'tab-link active__day__tab' data-tab = 'tab-1'>
           <h1 class = "box--headline">DAILY</h1>
@@ -44,30 +42,27 @@
           <article class = 'tab__info active__day__goal__info'>
             <progress id = 'progress__bar__activity' value="50" max="100"></progress>
             <p = id ='step__percentage'></p>
-            <!-- <div class="progress--bar--wrapper">
-              <div class="progress__bar__border">
-                <div class = "progress__bar" id = "progress__bar__active__goal">
-                  <span id="active__goal__percentage"></span>
-                </div>
-              </div>
-            </div> -->
           </article>
-        </li>
-        <li class='tab-link active__week__tab'data-tab= "tab-2">
-          <h1 class = 'box--headline'>WEEKLY</h1>
-          <article class = 'tab__info active__week__info'>
-          </article>
-        </li>     
+        </li>  
       </ul>
       </section>
+      <section class ='box active__week__tab'>
+        <h1 class = 'box--headline'>WEEKLY</h1>
+        <article class = 'tab__info active__week__info'>
+      </section>
       <section class = 'box average--active--box'>
-          <canvas id = 'activity-repo-numsteps' ></canvas>
+        <canvas id = 'activity-repo-numsteps' ></canvas>
       </section>
       <section class = 'box average--active--box'>
         <canvas id = 'activity-repo-active-time' ></canvas>
       </section>
       <section class = 'box average--active--box'>
         <canvas id = 'activity-repo-flightsOfStairs'></canvas>
+      </section>
+      <div class = 'box challenge--box'>
+        <canvas id = 'challenge-chart'></canvas>
+      </div>
+      <section class = 'box step--trend--box'>
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>    

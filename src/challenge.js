@@ -47,17 +47,14 @@ class Challenge {
     let contestants = [user.userData.id, ...this.challengers]
     this.genChallenger(contestants, users)
     this.genActiveData(contestants, users)
-    console.log(this.activityData)
   }
 
 
   genChallenger(contestants, users) {
     let userInfo = []
-    console.log(users)
     contestants.forEach(x => {
       users.filter(R => R.id === x ? userInfo.push(R) : null)
     })
-    // console.log(userInfo)
     this.getChallengerNames(userInfo)
   }
   getChallengerNames(userInfo) {
@@ -73,7 +70,6 @@ class Challenge {
     contestants.forEach(x => {
       this.activityData.filter(R => R.userID === x ? activityInfo.push(R) : null)
     })
-    // console.log(activityInfo)
     this.getChallengerStats(activityInfo)
   }
 
@@ -84,23 +80,9 @@ class Challenge {
       let week = activity.getWeeklyActive('13/08/2019')
       let total = week.reduce((acc, cur) => (acc = acc + cur.numSteps), 0)
       this.challengerStats.push(total)
-      console.log(total)
     })
   }
-
-  //I need each user object, users activity data, date
-
-  //instantiate user
-  //instantiate Activity with today and current user
-  //return names of each challenger
-  //getWeeklyActive(today) for that user and repeat per challenger
 }
-
-
-// design a step challenge between friends
-// assign 4 random friends form the group
-// show step count for the last 7 days
-// show winner of step challenge
 
 if (typeof module !== "undefined") {
   module.exports = Challenge

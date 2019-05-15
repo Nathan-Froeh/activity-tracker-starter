@@ -4,7 +4,6 @@ class Hydration {
   }
 
   calcAllTimeHydration() {
-    // the average fluid ounces consumed per day for all time
     let total = this.hydrationData.reduce((acc, cur) => {
       return acc = acc + cur.numOunces
     }, 0)
@@ -12,18 +11,17 @@ class Hydration {
   }
 
   calcDateHydration(date) {
-    // For a user, how many fluid ounces they consumed for a specific day
     return this.hydrationData.find(x => x.date === date).numOunces;
   }
 
   calcWeeklyHydration(date) {
-    // how many fluid ounces of water consumed each day over the course of a week
     let index = this.hydrationData.findIndex(x => x.date === date)
     let stuff = this.hydrationData.slice(index - 6, index + 1) 
     return stuff.map(x => x.numOunces)
   }
 
 }
-if(typeof module !== 'undefined') {
+
+if (typeof module !== 'undefined') {
   module.exports = Hydration;
 }
