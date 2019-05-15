@@ -69,7 +69,9 @@ describe('Activity', function() {
     expect(activity.getStepGoalPercentage("06/05/2019")).to.equal('92')
   })
   it('should return an array of 3 days of step count', () => {
-    expect(activityUser2.getStepTrend()).to.eql([["11/05/2019", "12/05/2019", "13/05/2019", "14/05/2019"]])
+    expect(activityUser2.getStepTrend()).to.eql([[{"date": "11/05/2019", "numSteps": 2629}, 
+    {"date": "12/05/2019", "numSteps": 9521}, {"date": "13/05/2019", "numSteps": 10671}, 
+    {"date": "14/05/2019", "numSteps": 10847}]])
   })
 
 

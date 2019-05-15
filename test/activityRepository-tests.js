@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-const ActivityRepository = require('../src/activity-repository');
+const ActivityRepository = require('../src/activityRepository');
 const testUser = require('../src/testUser');
 
 

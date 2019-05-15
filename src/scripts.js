@@ -149,5 +149,16 @@ function loadSleep(sleep) {
 }
 loadSleep(sleep)
 
+function loadStepTrend () {
+  let stepTrend = activity.getStepTrend();
+  let startEndDate = stepTrend.map((trend) => {
+  return `<li>${trend[0].date} - ${trend[trend.length-1].date}</li>`
+  })
+  $('.user--card').append(startEndDate)
+  console.log(startEndDate)
+  
+}
+loadStepTrend()
+
   
 

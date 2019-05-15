@@ -62,22 +62,21 @@ class Activity {
   getStepTrend() {
     let allTrends = []
     let currentTrend = []
-    let currentTrendDates = []
     this.activityData.forEach((day) => {
-      if (currentTrend.length === 0 || currentTrend[currentTrend.length - 1] < day.numSteps) {
-        currentTrend.push(day.numSteps)
-        currentTrendDates.push(day.date)
+      if (currentTrend.length === 0 || currentTrend[currentTrend.length - 1].numSteps < day.numSteps) {
+        currentTrend.push({"date": day.date, "numSteps": day.numSteps})
       }  else if (currentTrend.length > 3) {
-        allTrends.push(currentTrendDates)
+        allTrends.push(currentTrend)
+        currentTrend = []
       } else {
         currentTrend = []
-        currentTrendDates = []
       }
     })
     return allTrends
   }
-
 }
+
+
 if (typeof module !== 'undefined') {
   module.exports = Activity;
 }
