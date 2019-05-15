@@ -14,7 +14,9 @@ We sucessfully completed all 5 iterations and decided to try to integrate charts
 2) clone repo with 'git clone https://github.com/Nathan-Froeh/activity-tracker-starter.git'
 3) cd into the src directory and open the index.html file in a web browser
 
-### 
+![Desktop view static comp]()
+
+![Desktop view static comp]()
 
 
 
